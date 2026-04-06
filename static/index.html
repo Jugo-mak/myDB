@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tents DB - AI Managed</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>Tents AI Manager</h1>
+    </div>
+    <div class="stats" id="stats-header">
+      <!-- Stats will be loaded here -->
+    </div>
+  </header>
+  <main>
+    <section id="table-container">
+      <div class="table-wrapper">
+        <table id="data-table">
+          <thead>
+            <tr>
+              <th id="col-id" onclick="handleSort('id')">ID</th>
+              <th id="col-name" onclick="handleSort('name')">Name</th>
+              <th id="col-brand" onclick="handleSort('brand')">Brand</th>
+              <th id="col-price" onclick="handleSort('price')">Price</th>
+              <th id="col-capacity" onclick="handleSort('capacity')">Capacity</th>
+              <th id="col-weight_kg" onclick="handleSort('weight_kg')">Weight</th>
+              <th id="col-size_w" onclick="handleSort('size_w')">SizeW</th>
+              <th id="col-size_d" onclick="handleSort('size_d')">SizeD</th>
+              <th id="col-size_h" onclick="handleSort('size_h')">SizeH</th>
+              <th id="col-pack_w" onclick="handleSort('pack_w')">PackW</th>
+              <th id="col-pack_d" onclick="handleSort('pack_d')">PackD</th>
+              <th id="col-pack_h" onclick="handleSort('pack_h')">PackH</th>
+              <th id="col-material" onclick="handleSort('material')">Material</th>
+              <th id="col-purchase_date" onclick="handleSort('purchase_date')">Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Data will be loaded here -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <section id="chat-container">
+      <div class="chat-messages" id="chat-messages">
+        <div class="message ai-message">
+          こんにちは！Tents データベースのAIエージェントです。データの質問や編集、削除の指示があればチャットでお申し付けください。
+        </div>
+      </div>
+      <div class="chat-input-area">
+        <input type="text" id="chat-input" placeholder="例：ID 1の価格を20000円にして...">
+        <button id="send-btn">Send</button>
+      </div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

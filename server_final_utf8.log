@@ -1,0 +1,16 @@
+﻿[DEBUG] Chat request from session debug_utf8: 10????????????
+[DEBUG] Creating new session: debug_utf8
+[DEBUG] Tool: list_tents(skip=0, limit=10.0)
+[DEBUG] AI response: 10件のテント情報を取得しました。
+
+1. **HILL STONE ad-176** (HILL STONE) - 10,710円
+2. **TENT FACTORY フォーシーズン トンネル L** (TENT FACTORY) - 20,800円
+3. **Hilander A型フレーム ネヴィス 400** (Hilander) - 13,980円
+4. **Timber Ridge ティピーテント** (TIMBER RIDGE) - 9,999円
+5. **Naturehike ワンポールテント 牧場fire** (Naturehike) - 19,192円
+6. **Go Glamping パップテント TC** (GOGlamping) - 11,500円
+7. **Hilander & Onetigris A型フレーム Northgage** (One Tigris) - 29,800円
+8. **Desertfox ドームテント** (DesertFox) - 5,999円
+9. **Tomount ドームテント** (TOMOUNT) - 6,990円
+10. **Unafreely ワンポールテント** (Unafreely) - 13,260円
+INFO:     127.0.0.1:50650 - "POST /api/chat HTTP/1.1" 200 OK

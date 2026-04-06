@@ -1,0 +1,83 @@
+﻿[DEBUG] Chat request from session stable_verify: 10????????????
+[DEBUG] Creating new session: stable_verify
+[DEBUG] Tool: list_tents(skip=0, limit=10, min_price=None, max_price=None) - Found 10
+[DEBUG] AI response: テントを10件取得しました。
+
+1. **HILL STONE ad-176** (HILL STONE) - 10,710円
+2. **フォーシーズン トンネル L** (TENT FACTORY) - 20,800円
+3. **A型フレーム ネヴィス 400** (Hilander) - 13,980円
+4. **ティピーテント** (TIMBER RIDGE) - 9,999円
+5. **ワンポールテント 牧場fire** (Naturehike) - 19,192円
+6. **パップテント TC** (GOGlamping) - 11,500円
+7. **A型フレーム Northgage** (Hilander & One Tigris) - 29,800円
+8. **ドームテント** (DesertFox) - 5,999円
+9. **ドームテント** (TOMOUNT) - 6,990円
+10. **ワンポールテント** (Unafreely) - 13,260円
+
+他に知りたい情報はありますか？
+INFO:     127.0.0.1:61753 - "POST /api/chat HTTP/1.1" 200 OK
+[DEBUG] Chat request from session final_proof: 10万円以上のテントを出して
+[DEBUG] Creating new session: final_proof
+[DEBUG] Tool: list_tents(skip=0, limit=50, min_price=100000.0, max_price=None) - Found 1
+[DEBUG] AI response: 10万円以上のテントは、以下の1点が見つかりました。
+
+- **Graphite Blue Thermo Shelter** (GraphiteBlue)
+  - 価格: 126,500円
+INFO:     127.0.0.1:50212 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57712 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:57712 - "GET /style.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:61623 - "GET /app.js HTTP/1.1" 304 Not Modified
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:57712 - "GET /tents/stats HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:61623 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Chat request from session 8pkx8db: 10万円以上のテントを出して
+[DEBUG] Creating new session: 8pkx8db
+[DEBUG] Tool: list_tents(skip=0, limit=50, min_price=100000.0, max_price=None) - Found 1
+[DEBUG] AI response: 10万円以上のテントは1件見つかりました。
+
+*   **商品名**: Graphite Blue Thermo Shelter
+*   **ブランド**: GraphiteBlue
+*   **価格**: 126,500円
+INFO:     127.0.0.1:56076 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56076 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:56076 - "GET /tents/stats HTTP/1.1" 500 Internal Server Error
+[DEBUG] Chat request from session 8pkx8db: 全部の平均値を出して
+[DEBUG] Tool: get_tent_stats()
+[ERROR] Chat error: 'generator' object has no attribute 'query'
+INFO:     127.0.0.1:61038 - "POST /api/chat HTTP/1.1" 500 Internal Server Error
+[DEBUG] Chat request from session 8pkx8db: 購入価格の平均値を出して
+[DEBUG] Creating new session: 8pkx8db
+[DEBUG] Tool: get_tent_stats()
+[ERROR] Chat error: 'generator' object has no attribute 'query'
+INFO:     127.0.0.1:52249 - "POST /api/chat HTTP/1.1" 500 Internal Server Error
+[DEBUG] Chat request from session 8pkx8db: ID1を出して
+[DEBUG] Creating new session: 8pkx8db
+[DEBUG] Tool: get_tent_by_id(id=1.0)
+[ERROR] Chat error: 'generator' object has no attribute 'query'
+INFO:     127.0.0.1:59807 - "POST /api/chat HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:51535 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51535 - "GET /style.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49175 - "GET /app.js HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:51535 - "GET /tents/stats HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:49175 - "GET /tents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60240 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60240 - "GET /style.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55267 - "GET /app.js HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:60240 - "GET /tents/stats HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:55267 - "GET /tents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65432 - "GET /tents?limit=113 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55631 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:55631 - "GET /style.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:55631 - "GET /app.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:55631 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:55631 - "GET /tents/stats HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:52984 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:52984 - "GET /style.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:56494 - "GET /app.js HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:52984 - "GET /tents/stats HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:56494 - "GET /tents HTTP/1.1" 200 OK
