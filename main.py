@@ -11,6 +11,7 @@ from dotenv import load_dotenv
 import models
 import schemas
 import database
+from notion_client import Client
 
 # Load environment variables
 load_dotenv()
@@ -128,25 +129,145 @@ def delete_tent_by_id(tent_id: int):
     finally:
         db.close()
 
-def add_tent(name: str, brand: str = None, price: int = None, capacity: int = None):
+def add_tent(name: str, brand: str = None, price: float = None, capacity: float = None):
     """
     新しいテントをデータベースに追加します。
     """
-    print(f"[DEBUG] Tool: add_tent(name={name}, brand={brand})")
+    print(f"[DEBUG] Tool: add_tent(name={name}, brand={brand}, price={price}, capacity={capacity})")
     db = next(get_db_session())
     try:
-        new_tent = models.Tent(name=name, brand=brand, price=price, capacity=capacity)
+        # Cast price to int if it's not None
+        p_val = int(price) if price is not None else None
+        new_tent = models.Tent(name=name, brand=brand, price=p_val, capacity=capacity)
         db.add(new_tent)
         db.commit()
         db.refresh(new_tent)
-        return f"新しいテント {name} (ID: {new_tent.id}) を登録しました。"
+        return f"SUCCESS: 新しいテント {name} (ID: {new_tent.id}) を登録しました。"
+    except Exception as e:
+        db.rollback()
+        print(f"[ERROR] add_tent failed: {str(e)}")
+        return f"ERROR: 登録に失敗しました - {str(e)}"
     finally:
         db.close()
+
+# --- Notion API Tools for Gemini ---
+
+def list_notion_tents():
+    """
+    Notionのデータベースからテントのページ一覧をフェッチします。
+    """
+    token = (os.getenv("NOTION_TOKEN") or "").strip()
+    db_id = (os.getenv("NOTION_DATABASE_ID") or "").strip()
+    print(f"[DEBUG] Notion Sync: START. ID: {db_id}")
+    
+    if not token or not db_id: 
+        return "ERROR: Notion configuration missing in .env."
+    
+    try:
+        # Use explicit client initialization to avoid any shadowing
+        notion_client_app = Client(auth=token)
+        print(f"[DEBUG] Notion Sync: Client type: {type(notion_client_app)}")
+        
+        # Guard against AttributeError: DatabasesEndpoint object has no attribute 'query'
+        # Check if 'databases' and 'query' exist at runtime
+        if not hasattr(notion_client_app, "databases") or not hasattr(notion_client_app.databases, "query"):
+            err = f"FATAL: Database query method missing. DB Endpoint: {type(getattr(notion_client_app, 'databases', None))}, Attributes: {dir(getattr(notion_client_app, 'databases', 'None'))}"
+            print(f"[ERROR] {err}")
+            return f"ERROR: internal library conflict - {err}"
+
+        print(f"[DEBUG] Notion Sync: QUERYING Notion API.")
+        response = notion_client_app.databases.query(database_id=db_id)
+        results = response.get("results", [])
+        print(f"[DEBUG] Notion Sync: SUCCESS. Found {len(results)} pages.")
+        
+        output = []
+        for p in results:
+            props = p.get("properties", {})
+            title_p = props.get("Name") or props.get("名前") or {}
+            title = "".join(t.get("plain_text", "") for t in title_p.get("title", []))
+            output.append({"page_id": p["id"], "name": title})
+        return output if output else "No pages found in Notion database."
+    except Exception as e:
+        err = f"Notion API Exception: {str(e)}"
+        print(f"[ERROR] Notion Sync Failure: {err}")
+        traceback.print_exc()
+        return err
+
+def get_notion_tent_detail(page_id: str):
+    """
+    指定したIDのNotionページのプロパティ詳細（定員、価格など）を取得します。
+    """
+    token = (os.getenv("NOTION_TOKEN") or "").strip()
+    if not token: return "ERROR: Notion token missing."
+    
+    print(f"[DEBUG] Notion Detail: START for page {page_id}")
+    try:
+        notion_client_app = Client(auth=token)
+        # Verify page retrieval method
+        if not hasattr(notion_client_app, "pages") or not hasattr(notion_client_app.pages, "retrieve"):
+             return f"ERROR: library sync error - Pages endpoint missing."
+
+        p = notion_client_app.pages.retrieve(page_id=page_id)
+        props = p.get("properties", {})
+        
+        def get_val(name):
+            val = props.get(name, {})
+            if not val: return None
+            vtype = val.get("type")
+            if vtype == "title": return "".join(t.get("plain_text", "") for t in val.get("title", []))
+            if vtype == "rich_text": return "".join(t.get("plain_text", "") for t in val.get("rich_text", []))
+            if vtype == "number": return val.get("number")
+            if vtype == "select": return (val.get("select") or {}).get("name")
+            return None
+
+        data = {
+            "name": get_val("Name") or get_val("名前"),
+            "brand": get_val("Brand") or get_val("ブランド"),
+            "price": get_val("Price") or get_val("価格"),
+            "capacity": get_val("Capacity") or get_val("定員")
+        }
+        print(f"[DEBUG] Notion Detail: SUCCESS. Data: {data}")
+        return data
+    except Exception as e:
+        err = f"Detail retrieve failure: {str(e)}"
+        print(f"[ERROR] Notion Detail Failure: {err}")
+        return err
+
+def add_notion_tent_to_db(page_id: str):
+    """
+    Notionのデータを取得し、ローカルのデータベースに「一発登録」します。
+    """
+    print(f"[DEBUG] Tool: add_notion_tent_to_db(page_id={page_id})")
+    detail = get_notion_tent_detail(page_id)
+    if isinstance(detail, str): return detail # Return error string
+    
+    if not detail.get("name"): return "ERROR: Page has no name, cannot import."
+    
+    # Ensure numerical values are correctly typed
+    try:
+        price = float(detail.get("price")) if detail.get("price") is not None else None
+        capacity = float(detail.get("capacity")) if detail.get("capacity") is not None else None
+    except (ValueError, TypeError):
+        price = None
+        capacity = None
+
+    return add_tent(
+        name=detail["name"],
+        brand=detail.get("brand"),
+        price=price,
+        capacity=capacity
+    )
+
+# --- End Notion Tools ---
 
 # Initialize Gemini Model with Tools
 model = genai.GenerativeModel(
     model_name='models/gemini-3.1-flash-lite-preview',
-    tools=[list_tents, search_tents, get_tent_by_id, get_tent_stats, update_tent_fields, bulk_update_tents, delete_tent_by_id, add_tent]
+    tools=[
+        list_tents, search_tents, get_tent_by_id, get_tent_stats, 
+        update_tent_fields, bulk_update_tents, delete_tent_by_id, add_tent,
+        list_notion_tents, get_notion_tent_detail, add_notion_tent_to_db
+    ]
 )
 
 # In-memory chat storage
@@ -170,11 +291,17 @@ async def chat_with_agent(
         # AI response rendering
         return {"response": response.text}
     except Exception as e:
-        print(f"[ERROR] Chat error: {str(e)}")
+        err_msg = f"Chat interaction failed: {str(e)}"
+        print(f"[ERROR] {err_msg}")
         traceback.print_exc()
-        # If error occurs (e.g. session expired or invalid), reset session
+        
+        # Reset session on error to allow recovery
         if session_id in chats:
+            print(f"[DEBUG] Resetting session {session_id} due to error.")
             del chats[session_id]
+            
+        # Return a meaningful error to the UI instead of a raw 500 if possible
+        # but here we still raise so the UI 'catch' block handles it locally
         raise HTTPException(status_code=500, detail=str(e))
 
 # Existing CRUD Endpoints
