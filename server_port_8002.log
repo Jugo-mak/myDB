@@ -1,0 +1,70 @@
+﻿.\.venv\Scripts\python : C:\Users\0120025-Z10
+0\source\project\myDB\main.py:8: FutureWarnin
+g: 
+発生場所 行:1 文字:32
++ ... hon.exe /T; .\.venv\Scripts\python -m u
+vicorn main:app --port 8002 2> ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified:  
+   (C:\Users\012002...FutureWarning: :Strin  
+  g) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandE 
+   rror
+ 
+
+All support for the `google.generativeai` pac
+kage has ended. It will no longer be receivin
+g 
+updates or bug fixes. Please switch to the `g
+oogle.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-g
+enerative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [31788]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1
+:8002 (Press CTRL+C to quit)
+INFO:     127.0.0.1:50060 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50060 - "GET /style.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50060 - "GET /app.js HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:50060 - "GET /tents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56970 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56970 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50423 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50423 - "GET /style.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50423 - "GET /app.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50423 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:50423 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65234 - "GET /app.js HTTP/1.1" 304 Not Modified
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:65234 - "GET /tents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59139 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59977 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:59977 - "GET /style.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:59977 - "GET /app.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:59977 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:59977 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63253 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:63253 - "GET /style.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:63253 - "GET /app.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:63253 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:63253 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56393 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:56393 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:56393 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51457 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:51457 - "GET /style.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:51457 - "GET /app.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:51457 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:51457 - "GET /tents/stats HTTP/1.1" 200 OK

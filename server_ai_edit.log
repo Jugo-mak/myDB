@@ -1,0 +1,34 @@
+﻿.\.venv\Scripts\python : C:\Users\0120025
+-Z100\source\project\myDB\main.py:8: Futu
+reWarning: 
+発生場所 行:1 文字:32
++ ... hon.exe /T; .\.venv\Scripts\python 
+-m uvicorn main:app --port 8002 2> ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecifie
+d:     (C:\Users\012002...FutureWarning: 
+:Strin    g) [], RemoteException
+    + FullyQualifiedErrorId : NativeComma
+ndE    rror
+ 
+
+All support for the `google.generativeai`
+ package has ended. It will no longer be 
+receiving 
+updates or bug fixes. Please switch to th
+e `google.genai` package as soon as possi
+ble.
+See README for more details:
+
+https://github.com/google-gemini/deprecat
+ed-generative-ai-python/blob/main/README.
+md
+
+  import google.generativeai as genai
+INFO:     Started server process [28828]
+INFO:     Waiting for application startup
+.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0
+.0.1:8002 (Press CTRL+C to quit)

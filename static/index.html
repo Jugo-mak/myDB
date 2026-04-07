@@ -24,6 +24,12 @@
   </header>
   <main>
     <section id="table-container">
+      <div class="table-toolbar">
+        <button class="btn-validate" onclick="validateEdits()">検証 (Validate)</button>
+        <button class="btn-write" onclick="commitEdits()">書込 (Write)</button>
+        <button class="btn-reset" onclick="resetEdits()">リセット (Reset)</button>
+        <div id="edit-status" class="status-message">未編集</div>
+      </div>
       <div class="table-wrapper">
         <table id="data-table">
           <thead>
@@ -62,6 +68,7 @@
       </div>
     </section>
   </main>
+  <div id="toast-container"></div>
   <script src="app.js"></script>
 </body>
 </html>

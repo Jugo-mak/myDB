@@ -1,0 +1,340 @@
+﻿.\.venv\Scripts\python : C:\Users\0120025-Z10
+0\source\project\myDB\main.py:8: FutureWarnin
+g: 
+発生場所 行:1 文字:47
++ ... le main.py; .\.venv\Scripts\python -m u
+vicorn main:app --port 8001 2> ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified:  
+   (C:\Users\012002...FutureWarning: :Strin  
+  g) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandE 
+   rror
+ 
+
+All support for the `google.generativeai` pac
+kage has ended. It will no longer be receivin
+g 
+updates or bug fixes. Please switch to the `g
+oogle.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-g
+enerative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [14776]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1
+:8001 (Press CTRL+C to quit)
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:62109 - "GET /tents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65053 - "GET /tents/stats HTTP/1.1" 200 OK
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+grpc_helpers.py", line 55, in error_remapped_
+callable
+    return callable_(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_intercepto
+r.py", line 276, in __call__
+    response, ignored_call = self._with_call(
+                             ~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+    ...<4 lines>...
+        compression=compression,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_intercepto
+r.py", line 331, in _with_call
+    return call.result(), call
+           ~~~~~~~~~~~^^
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_channel.py
+", line 438, in result
+    raise self
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_intercepto
+r.py", line 314, in continuation
+    response, call = self._thunk(new_method).
+with_call(
+                     ~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~^
+        request,
+        ^^^^^^^^
+    ...<4 lines>...
+        compression=new_compression,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_channel.py
+", line 1173, in with_call
+    return _end_unary_response_blocking(state
+, call, True, None)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_channel.py
+", line 990, in _end_unary_response_blocking
+    raise _InactiveRpcError(state)  # pytype:
+ disable=not-instantiable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+grpc._channel._InactiveRpcError: <_InactiveRp
+cError of RPC that terminated with:
+	status = StatusCode.NOT_FOUND
+	details = "models/gemini-1.5-flash is not fo
+und for API version v1beta, or is not support
+ed for generateContent. Call ListModels to se
+e the list of available models and their supp
+orted methods."
+	debug_error_string = "UNKNOWN:Error received
+ from peer ipv4:142.251.23.95:443 {grpc_statu
+s:5, grpc_message:"models/gemini-1.5-flash is
+ not found for API version v1beta, or is not 
+supported for generateContent. Call ListModel
+s to see the list of available models and the
+ir supported methods."}"
+>
+
+The above exception was the direct cause of t
+he following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\project\
+myDB\main.py", line 168, in chat_with_agent
+    response = chat.send_message(message)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\generativ
+eai\generative_models.py", line 578, in send_
+message
+    response = self.model.generate_content(
+        contents=history,
+    ...<5 lines>...
+        request_options=request_options,
+    )
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\generativ
+eai\generative_models.py", line 331, in gener
+ate_content
+    response = self._client.generate_content(
+        request,
+        **request_options,
+    )
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\ai\genera
+tivelanguage_v1beta\services\generative_servi
+ce\client.py", line 835, in generate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+gapic_v1\method.py", line 128, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+retry\retry_unary.py", line 294, in retry_wra
+pped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+retry\retry_unary.py", line 156, in retry_tar
+get
+    next_sleep = _retry_error_helper(
+        exc,
+    ...<6 lines>...
+        timeout,
+    )
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+retry\retry_base.py", line 216, in _retry_err
+or_helper
+    raise final_exc from source_exc
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+retry\retry_unary.py", line 147, in retry_tar
+get
+    result = target()
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+grpc_helpers.py", line 57, in error_remapped_
+callable
+    raise exceptions.from_grpc_error(exc) fro
+m exc
+google.api_core.exceptions.NotFound: 404 mode
+ls/gemini-1.5-flash is not found for API vers
+ion v1beta, or is not supported for generateC
+ontent. Call ListModels to see the list of av
+ailable models and their supported methods.
+[DEBUG] Chat request from session 8pkx8db: Create a histogram of prices. Include Chart.js config in ```chart { ... } ```.
+[DEBUG] Creating new session: 8pkx8db
+[ERROR] Chat error: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:61245 - "POST /api/chat HTTP/1.1" 500 Internal Server Error
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+grpc_helpers.py", line 55, in error_remapped_
+callable
+    return callable_(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_intercepto
+r.py", line 276, in __call__
+    response, ignored_call = self._with_call(
+                             ~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+    ...<4 lines>...
+        compression=compression,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_intercepto
+r.py", line 331, in _with_call
+    return call.result(), call
+           ~~~~~~~~~~~^^
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_channel.py
+", line 438, in result
+    raise self
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_intercepto
+r.py", line 314, in continuation
+    response, call = self._thunk(new_method).
+with_call(
+                     ~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~^
+        request,
+        ^^^^^^^^
+    ...<4 lines>...
+        compression=new_compression,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_channel.py
+", line 1173, in with_call
+    return _end_unary_response_blocking(state
+, call, True, None)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_channel.py
+", line 990, in _end_unary_response_blocking
+    raise _InactiveRpcError(state)  # pytype:
+ disable=not-instantiable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+grpc._channel._InactiveRpcError: <_InactiveRp
+cError of RPC that terminated with:
+	status = StatusCode.NOT_FOUND
+	details = "models/gemini-1.5-flash is not fo
+und for API version v1beta, or is not support
+ed for generateContent. Call ListModels to se
+e the list of available models and their supp
+orted methods."
+	debug_error_string = "UNKNOWN:Error received
+ from peer ipv4:142.251.23.95:443 {grpc_statu
+s:5, grpc_message:"models/gemini-1.5-flash is
+ not found for API version v1beta, or is not 
+supported for generateContent. Call ListModel
+s to see the list of available models and the
+ir supported methods."}"
+>
+
+The above exception was the direct cause of t
+he following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\project\
+myDB\main.py", line 168, in chat_with_agent
+    response = chat.send_message(message)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\generativ
+eai\generative_models.py", line 578, in send_
+message
+    response = self.model.generate_content(
+        contents=history,
+    ...<5 lines>...
+        request_options=request_options,
+    )
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\generativ
+eai\generative_models.py", line 331, in gener
+ate_content
+    response = self._client.generate_content(
+        request,
+        **request_options,
+    )
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\ai\genera
+tivelanguage_v1beta\services\generative_servi
+ce\client.py", line 835, in generate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+gapic_v1\method.py", line 128, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+retry\retry_unary.py", line 294, in retry_wra
+pped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+retry\retry_unary.py", line 156, in retry_tar
+get
+    next_sleep = _retry_error_helper(
+        exc,
+    ...<6 lines>...
+        timeout,
+    )
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+retry\retry_base.py", line 216, in _retry_err
+or_helper
+    raise final_exc from source_exc
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+retry\retry_unary.py", line 147, in retry_tar
+get
+    result = target()
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+grpc_helpers.py", line 57, in error_remapped_
+callable
+    raise exceptions.from_grpc_error(exc) fro
+m exc
+google.api_core.exceptions.NotFound: 404 mode
+ls/gemini-1.5-flash is not found for API vers
+ion v1beta, or is not supported for generateC
+ontent. Call ListModels to see the list of av
+ailable models and their supported methods.
+[DEBUG] Chat request from session 8pkx8db: Hello
+[DEBUG] Creating new session: 8pkx8db
+[ERROR] Chat error: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:58231 - "POST /api/chat HTTP/1.1" 500 Internal Server Error

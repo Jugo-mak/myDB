@@ -92,24 +92,24 @@ def get_tent_stats():
     finally:
         db.close()
 
-def update_tent_price(tent_id: int, new_price: int):
+def update_tent_fields(tent_id: int, updates: Dict[str, Any]):
     """
-    指定したIDのテントの価格を更新します。
+    指定したIDのテントの情報を「画面上のみ」更新提案します。
+    更新可能なフィールド: name, brand, price, capacity, weight_kg, material, purchase_date, size_w, size_d, size_h, pack_w, pack_d, pack_h
+    注意: このツールはDBを書き換えません。画面上で赤字（未保存）にするだけです。
     """
-    print(f"[DEBUG] Tool: update_tent_price(id={tent_id}, price={new_price})")
-    db = next(get_db_session())
-    try:
-        db_tent = db.query(models.Tent).filter(models.Tent.id == tent_id).first()
-        if not db_tent:
-            return f"テントID {tent_id} は見つかりませんでした。"
-        old_price = db_tent.price
-        db_tent.price = new_price
-        db.commit()
-        return f"テント {db_tent.name} (ID: {tent_id}) の価格を {old_price} 円から {new_price} 円に更新しました。"
-    except Exception as e:
-        return f"エラーが発生しました: {str(e)}"
-    finally:
-        db.close()
+    import json
+    proposal = {"id": tent_id, "updates": updates}
+    return f"[UI_PROPOSAL: {json.dumps(proposal)}]"
+
+def bulk_update_tents(tent_ids: List[int], updates: Dict[str, Any]):
+    """
+    複数のテントに対して、同一の変更を一括で「画面上のみ」更新提案します。
+    注意: このツールはDBを書き換えません。画面上で赤字（未保存）にするだけです。
+    """
+    import json
+    proposal = {"ids": tent_ids, "updates": updates}
+    return f"[UI_BULK_PROPOSAL: {json.dumps(proposal)}]"
 
 def delete_tent_by_id(tent_id: int):
     """
@@ -145,8 +145,8 @@ def add_tent(name: str, brand: str = None, price: int = None, capacity: int = No
 
 # Initialize Gemini Model with Tools
 model = genai.GenerativeModel(
-    model_name='models/gemini-1.5-flash-latest',
-    tools=[list_tents, search_tents, get_tent_by_id, get_tent_stats, update_tent_price, delete_tent_by_id, add_tent]
+    model_name='models/gemini-3.1-flash-lite-preview',
+    tools=[list_tents, search_tents, get_tent_by_id, get_tent_stats, update_tent_fields, bulk_update_tents, delete_tent_by_id, add_tent]
 )
 
 # In-memory chat storage
@@ -167,7 +167,7 @@ async def chat_with_agent(
         chat = chats[session_id]
         response = chat.send_message(message)
         
-        print(f"[DEBUG] AI response: {response.text}")
+        # AI response rendering
         return {"response": response.text}
     except Exception as e:
         print(f"[ERROR] Chat error: {str(e)}")
@@ -205,6 +205,25 @@ def update_tent(tent_id: int, tent: schemas.TentUpdate, db: Session = Depends(da
     db.commit()
     db.refresh(db_tent)
     return db_tent
+
+@app.post("/tents/batch")
+def batch_update_tents(updates: Dict[int, Dict[str, Any]], db: Session = Depends(database.get_db)):
+    """
+    一括で複数のテント情報を更新します。
+    """
+    updated_count = 0
+    for tent_id_str, fields in updates.items():
+        try:
+            tent_id = int(tent_id_str)
+            db_tent = db.query(models.Tent).filter(models.Tent.id == tent_id).first()
+            if db_tent:
+                for key, value in fields.items():
+                    setattr(db_tent, key, value)
+                updated_count += 1
+        except ValueError:
+            continue
+    db.commit()
+    return {"status": "success", "updated_count": updated_count}
 
 # Serve Frontend
 app.mount("/", StaticFiles(directory="static", html=True), name="static")

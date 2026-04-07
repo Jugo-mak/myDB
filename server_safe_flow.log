@@ -1,0 +1,1263 @@
+﻿.\.venv\Scripts\python : C:\Users\0120025-Z10
+0\source\project\myDB\main.py:8: FutureWarnin
+g: 
+発生場所 行:1 文字:32
++ ... hon.exe /T; .\.venv\Scripts\python -m u
+vicorn main:app --port 8002 2> ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified:  
+   (C:\Users\012002...FutureWarning: :Strin  
+  g) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandE 
+   rror
+ 
+
+All support for the `google.generativeai` pac
+kage has ended. It will no longer be receivin
+g 
+updates or bug fixes. Please switch to the `g
+oogle.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-g
+enerative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [32184]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1
+:8002 (Press CTRL+C to quit)
+INFO:     127.0.0.1:60270 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:60270 - "GET /style.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:60270 - "GET /app.js HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:60270 - "GET /tents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62566 - "GET /tents/stats HTTP/1.1" 200 OK
+[DEBUG] Chat request from session qv8wz: ID 1
+[DEBUG] Creating new session: qv8wz
+[DEBUG] Tool: get_tent_by_id(id=1.0)
+INFO:     127.0.0.1:49404 - "POST /api/chat HTTP/1.1" 200 OK
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\project\
+myDB\main.py", line 168, in chat_with_agent
+    response = chat.send_message(message)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\generativ
+eai\generative_models.py", line 591, in send_
+message
+    self.history, content, response = self._h
+andle_afc(
+                                      ~~~~~~~
+~~~~~~~~~^
+        response=response,
+        ^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        request_options=request_options,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\generativ
+eai\generative_models.py", line 647, in _hand
+le_afc
+    fr = tools_lib(fc)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\generativ
+eai\types\content_types.py", line 881, in __c
+all__
+    response = declaration(fc)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\generativ
+eai\types\content_types.py", line 641, in __c
+all__
+    result = self.function(**fc.args)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\main.py", line 103, in update_tent_field
+s
+    return f"[UI_PROPOSAL: {json.dumps(propos
+al)}]"
+                            ~~~~~~~~~~^^^^^^^
+^^^
+  File "C:\Users\0120025-Z100\AppData\Local\P
+rograms\Python\Python313\Lib\json\__init__.py
+", line 235, in dumps
+    return _default_encoder.encode(obj)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\0120025-Z100\AppData\Local\P
+rograms\Python\Python313\Lib\json\encoder.py"
+, line 202, in encode
+    chunks = self.iterencode(o, _one_shot=Tru
+e)
+  File "C:\Users\0120025-Z100\AppData\Local\P
+rograms\Python\Python313\Lib\json\encoder.py"
+, line 263, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\0120025-Z100\AppData\Local\P
+rograms\Python\Python313\Lib\json\encoder.py"
+, line 182, in default
+    raise TypeError(f'Object of type {o.__cla
+ss__.__name__} '
+                    f'is not JSON serializabl
+e')
+TypeError: Object of type MapComposite is not
+ JSON serializable
+[DEBUG] Chat request from session qv8wz: ID 1 brand to 'COLEMAN SAFE'
+[ERROR] Chat error: Object of type MapComposite is not JSON serializable
+INFO:     127.0.0.1:57214 - "POST /api/chat HTTP/1.1" 500 Internal Server Error
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\project\
+myDB\main.py", line 168, in chat_with_agent
+    response = chat.send_message(message)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\generativ
+eai\generative_models.py", line 591, in send_
+message
+    self.history, content, response = self._h
+andle_afc(
+                                      ~~~~~~~
+~~~~~~~~~^
+        response=response,
+        ^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        request_options=request_options,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\generativ
+eai\generative_models.py", line 647, in _hand
+le_afc
+    fr = tools_lib(fc)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\generativ
+eai\types\content_types.py", line 881, in __c
+all__
+    response = declaration(fc)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\generativ
+eai\types\content_types.py", line 641, in __c
+all__
+    result = self.function(**fc.args)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\main.py", line 103, in update_tent_field
+s
+    return f"[UI_PROPOSAL: {json.dumps(propos
+al)}]"
+                            ~~~~~~~~~~^^^^^^^
+^^^
+  File "C:\Users\0120025-Z100\AppData\Local\P
+rograms\Python\Python313\Lib\json\__init__.py
+", line 235, in dumps
+    return _default_encoder.encode(obj)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\0120025-Z100\AppData\Local\P
+rograms\Python\Python313\Lib\json\encoder.py"
+, line 202, in encode
+    chunks = self.iterencode(o, _one_shot=Tru
+e)
+  File "C:\Users\0120025-Z100\AppData\Local\P
+rograms\Python\Python313\Lib\json\encoder.py"
+, line 263, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\0120025-Z100\AppData\Local\P
+rograms\Python\Python313\Lib\json\encoder.py"
+, line 182, in default
+    raise TypeError(f'Object of type {o.__cla
+ss__.__name__} '
+                    f'is not JSON serializabl
+e')
+TypeError: Object of type MapComposite is not
+ JSON serializable
+[DEBUG] Chat request from session qv8wz: Set ID 1 brand to COLEMAN SAFE
+[DEBUG] Creating new session: qv8wz
+[ERROR] Chat error: Object of type MapComposite is not JSON serializable
+INFO:     127.0.0.1:56670 - "POST /api/chat HTTP/1.1" 500 Internal Server Error
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\project\
+myDB\main.py", line 168, in chat_with_agent
+    response = chat.send_message(message)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\generativ
+eai\generative_models.py", line 591, in send_
+message
+    self.history, content, response = self._h
+andle_afc(
+                                      ~~~~~~~
+~~~~~~~~~^
+        response=response,
+        ^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        request_options=request_options,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\generativ
+eai\generative_models.py", line 647, in _hand
+le_afc
+    fr = tools_lib(fc)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\generativ
+eai\types\content_types.py", line 881, in __c
+all__
+    response = declaration(fc)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\generativ
+eai\types\content_types.py", line 641, in __c
+all__
+    result = self.function(**fc.args)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\main.py", line 103, in update_tent_field
+s
+    return f"[UI_PROPOSAL: {json.dumps(propos
+al)}]"
+                            ~~~~~~~~~~^^^^^^^
+^^^
+  File "C:\Users\0120025-Z100\AppData\Local\P
+rograms\Python\Python313\Lib\json\__init__.py
+", line 235, in dumps
+    return _default_encoder.encode(obj)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\0120025-Z100\AppData\Local\P
+rograms\Python\Python313\Lib\json\encoder.py"
+, line 202, in encode
+    chunks = self.iterencode(o, _one_shot=Tru
+e)
+  File "C:\Users\0120025-Z100\AppData\Local\P
+rograms\Python\Python313\Lib\json\encoder.py"
+, line 263, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\0120025-Z100\AppData\Local\P
+rograms\Python\Python313\Lib\json\encoder.py"
+, line 182, in default
+    raise TypeError(f'Object of type {o.__cla
+ss__.__name__} '
+                    f'is not JSON serializabl
+e')
+TypeError: Object of type MapComposite is not
+ JSON serializable
+[DEBUG] Chat request from session qv8wz: update tent with id 1 brand to COLEMAN SAFE
+[DEBUG] Creating new session: qv8wz
+[ERROR] Chat error: Object of type MapComposite is not JSON serializable
+INFO:     127.0.0.1:65347 - "POST /api/chat HTTP/1.1" 500 Internal Server Error
+[DEBUG] Chat request from session qv8wz: Tell me about tent ID 10
+[DEBUG] Creating new session: qv8wz
+[DEBUG] Tool: get_tent_by_id(id=10.0)
+INFO:     127.0.0.1:62083 - "POST /api/chat HTTP/1.1" 200 OK
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\project\
+myDB\main.py", line 168, in chat_with_agent
+    response = chat.send_message(message)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\generativ
+eai\generative_models.py", line 591, in send_
+message
+    self.history, content, response = self._h
+andle_afc(
+                                      ~~~~~~~
+~~~~~~~~~^
+        response=response,
+        ^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        request_options=request_options,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\generativ
+eai\generative_models.py", line 647, in _hand
+le_afc
+    fr = tools_lib(fc)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\generativ
+eai\types\content_types.py", line 881, in __c
+all__
+    response = declaration(fc)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\generativ
+eai\types\content_types.py", line 641, in __c
+all__
+    result = self.function(**fc.args)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\main.py", line 103, in update_tent_field
+s
+    return f"[UI_PROPOSAL: {json.dumps(propos
+al)}]"
+                            ~~~~~~~~~~^^^^^^^
+^^^
+  File "C:\Users\0120025-Z100\AppData\Local\P
+rograms\Python\Python313\Lib\json\__init__.py
+", line 235, in dumps
+    return _default_encoder.encode(obj)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\0120025-Z100\AppData\Local\P
+rograms\Python\Python313\Lib\json\encoder.py"
+, line 202, in encode
+    chunks = self.iterencode(o, _one_shot=Tru
+e)
+  File "C:\Users\0120025-Z100\AppData\Local\P
+rograms\Python\Python313\Lib\json\encoder.py"
+, line 263, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\0120025-Z100\AppData\Local\P
+rograms\Python\Python313\Lib\json\encoder.py"
+, line 182, in default
+    raise TypeError(f'Object of type {o.__cla
+ss__.__name__} '
+                    f'is not JSON serializabl
+e')
+TypeError: Object of type MapComposite is not
+ JSON serializable
+[DEBUG] Chat request from session qv8wz: Propose a change for ID 1 Brand to COLEMAN SAFE
+[ERROR] Chat error: Object of type MapComposite is not JSON serializable
+INFO:     127.0.0.1:60644 - "POST /api/chat HTTP/1.1" 500 Internal Server Error
+[DEBUG] Chat request from session qv8wz: ID 1
+[DEBUG] Creating new session: qv8wz
+INFO:     127.0.0.1:53641 - "POST /api/chat HTTP/1.1" 200 OK
+[DEBUG] Chat request from session qv8wz: What tools do you have?
+INFO:     127.0.0.1:60078 - "POST /api/chat HTTP/1.1" 200 OK
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\project\
+myDB\main.py", line 168, in chat_with_agent
+    response = chat.send_message(message)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\generativ
+eai\generative_models.py", line 591, in send_
+message
+    self.history, content, response = self._h
+andle_afc(
+                                      ~~~~~~~
+~~~~~~~~~^
+        response=response,
+        ^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        request_options=request_options,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\generativ
+eai\generative_models.py", line 647, in _hand
+le_afc
+    fr = tools_lib(fc)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\generativ
+eai\types\content_types.py", line 881, in __c
+all__
+    response = declaration(fc)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\generativ
+eai\types\content_types.py", line 641, in __c
+all__
+    result = self.function(**fc.args)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\main.py", line 103, in update_tent_field
+s
+    return f"[UI_PROPOSAL: {json.dumps(propos
+al)}]"
+                            ~~~~~~~~~~^^^^^^^
+^^^
+  File "C:\Users\0120025-Z100\AppData\Local\P
+rograms\Python\Python313\Lib\json\__init__.py
+", line 235, in dumps
+    return _default_encoder.encode(obj)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\0120025-Z100\AppData\Local\P
+rograms\Python\Python313\Lib\json\encoder.py"
+, line 202, in encode
+    chunks = self.iterencode(o, _one_shot=Tru
+e)
+  File "C:\Users\0120025-Z100\AppData\Local\P
+rograms\Python\Python313\Lib\json\encoder.py"
+, line 263, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\0120025-Z100\AppData\Local\P
+rograms\Python\Python313\Lib\json\encoder.py"
+, line 182, in default
+    raise TypeError(f'Object of type {o.__cla
+ss__.__name__} '
+                    f'is not JSON serializabl
+e')
+TypeError: Object of type MapComposite is not
+ JSON serializable
+[DEBUG] Chat request from session qv8wz: Use update_tent_fields to set brand of ID 1 to COLEMAN SAFE
+[ERROR] Chat error: Object of type MapComposite is not JSON serializable
+INFO:     127.0.0.1:57078 - "POST /api/chat HTTP/1.1" 500 Internal Server Error
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+grpc_helpers.py", line 55, in error_remapped_
+callable
+    return callable_(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_intercepto
+r.py", line 276, in __call__
+    response, ignored_call = self._with_call(
+                             ~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+    ...<4 lines>...
+        compression=compression,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_intercepto
+r.py", line 331, in _with_call
+    return call.result(), call
+           ~~~~~~~~~~~^^
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_channel.py
+", line 438, in result
+    raise self
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_intercepto
+r.py", line 314, in continuation
+    response, call = self._thunk(new_method).
+with_call(
+                     ~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~^
+        request,
+        ^^^^^^^^
+    ...<4 lines>...
+        compression=new_compression,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_channel.py
+", line 1173, in with_call
+    return _end_unary_response_blocking(state
+, call, True, None)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_channel.py
+", line 990, in _end_unary_response_blocking
+    raise _InactiveRpcError(state)  # pytype:
+ disable=not-instantiable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+grpc._channel._InactiveRpcError: <_InactiveRp
+cError of RPC that terminated with:
+	status = StatusCode.RESOURCE_EXHAUSTED
+	details = "You exceeded your current quota, 
+please check your plan and billing details. F
+or more information on this error, head to: h
+ttps://ai.google.dev/gemini-api/docs/rate-lim
+its. To monitor your current usage, head to: 
+https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelangua
+ge.googleapis.com/generate_content_free_tier_
+requests, limit: 20, model: gemini-2.5-flash
+Please retry in 9.956661123s."
+	debug_error_string = "UNKNOWN:Error received
+ from peer ipv4:142.250.23.95:443 {grpc_statu
+s:8, grpc_message:"You exceeded your current 
+quota, please check your plan and billing det
+ails. For more information on this error, hea
+d to: https://ai.google.dev/gemini-api/docs/r
+ate-limits. To monitor your current usage, he
+ad to: https://ai.dev/rate-limit. \n* Quota e
+xceeded for metric: generativelanguage.google
+apis.com/generate_content_free_tier_requests,
+ limit: 20, model: gemini-2.5-flash\nPlease r
+etry in 9.956661123s."}"
+>
+
+The above exception was the direct cause of t
+he following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\project\
+myDB\main.py", line 168, in chat_with_agent
+    response = chat.send_message(message)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\generativ
+eai\generative_models.py", line 591, in send_
+message
+    self.history, content, response = self._h
+andle_afc(
+                                      ~~~~~~~
+~~~~~~~~~^
+        response=response,
+        ^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        request_options=request_options,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\generativ
+eai\generative_models.py", line 657, in _hand
+le_afc
+    response = self.model.generate_content(
+        contents=history,
+    ...<4 lines>...
+        request_options=request_options,
+    )
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\generativ
+eai\generative_models.py", line 331, in gener
+ate_content
+    response = self._client.generate_content(
+        request,
+        **request_options,
+    )
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\ai\genera
+tivelanguage_v1beta\services\generative_servi
+ce\client.py", line 835, in generate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+gapic_v1\method.py", line 128, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+retry\retry_unary.py", line 294, in retry_wra
+pped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+retry\retry_unary.py", line 156, in retry_tar
+get
+    next_sleep = _retry_error_helper(
+        exc,
+    ...<6 lines>...
+        timeout,
+    )
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+retry\retry_base.py", line 216, in _retry_err
+or_helper
+    raise final_exc from source_exc
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+retry\retry_unary.py", line 147, in retry_tar
+get
+    result = target()
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+grpc_helpers.py", line 57, in error_remapped_
+callable
+    raise exceptions.from_grpc_error(exc) fro
+m exc
+google.api_core.exceptions.ResourceExhausted:
+ 429 You exceeded your current quota, please 
+check your plan and billing details. For more
+ information on this error, head to: https://
+ai.google.dev/gemini-api/docs/rate-limits. To
+ monitor your current usage, head to: https:/
+/ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelangua
+ge.googleapis.com/generate_content_free_tier_
+requests, limit: 20, model: gemini-2.5-flash
+Please retry in 9.956661123s. [links {
+  description: "Learn more about Gemini API q
+uotas"
+  url: "https://ai.google.dev/gemini-api/docs
+/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapi
+s.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProject
+PerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 9
+}
+]
+[DEBUG] Chat request from session qv8wz: Search for Coleman tents
+[DEBUG] Creating new session: qv8wz
+[DEBUG] Tool: search_tents(query='Coleman') - Found 2
+[ERROR] Chat error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 9.956661123s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 9
+}
+]
+INFO:     127.0.0.1:61057 - "POST /api/chat HTTP/1.1" 500 Internal Server Error
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+grpc_helpers.py", line 55, in error_remapped_
+callable
+    return callable_(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_intercepto
+r.py", line 276, in __call__
+    response, ignored_call = self._with_call(
+                             ~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+    ...<4 lines>...
+        compression=compression,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_intercepto
+r.py", line 331, in _with_call
+    return call.result(), call
+           ~~~~~~~~~~~^^
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_channel.py
+", line 438, in result
+    raise self
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_intercepto
+r.py", line 314, in continuation
+    response, call = self._thunk(new_method).
+with_call(
+                     ~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~^
+        request,
+        ^^^^^^^^
+    ...<4 lines>...
+        compression=new_compression,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_channel.py
+", line 1173, in with_call
+    return _end_unary_response_blocking(state
+, call, True, None)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_channel.py
+", line 990, in _end_unary_response_blocking
+    raise _InactiveRpcError(state)  # pytype:
+ disable=not-instantiable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+grpc._channel._InactiveRpcError: <_InactiveRp
+cError of RPC that terminated with:
+	status = StatusCode.RESOURCE_EXHAUSTED
+	details = "You exceeded your current quota, 
+please check your plan and billing details. F
+or more information on this error, head to: h
+ttps://ai.google.dev/gemini-api/docs/rate-lim
+its. To monitor your current usage, head to: 
+https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelangua
+ge.googleapis.com/generate_content_free_tier_
+requests, limit: 20, model: gemini-2.5-flash
+Please retry in 35.450260587s."
+	debug_error_string = "UNKNOWN:Error received
+ from peer ipv4:142.250.23.95:443 {grpc_messa
+ge:"You exceeded your current quota, please c
+heck your plan and billing details. For more 
+information on this error, head to: https://a
+i.google.dev/gemini-api/docs/rate-limits. To 
+monitor your current usage, head to: https://
+ai.dev/rate-limit. \n* Quota exceeded for met
+ric: generativelanguage.googleapis.com/genera
+te_content_free_tier_requests, limit: 20, mod
+el: gemini-2.5-flash\nPlease retry in 35.4502
+60587s.", grpc_status:8}"
+>
+
+The above exception was the direct cause of t
+he following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\project\
+myDB\main.py", line 168, in chat_with_agent
+    response = chat.send_message(message)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\generativ
+eai\generative_models.py", line 578, in send_
+message
+    response = self.model.generate_content(
+        contents=history,
+    ...<5 lines>...
+        request_options=request_options,
+    )
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\generativ
+eai\generative_models.py", line 331, in gener
+ate_content
+    response = self._client.generate_content(
+        request,
+        **request_options,
+    )
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\ai\genera
+tivelanguage_v1beta\services\generative_servi
+ce\client.py", line 835, in generate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+gapic_v1\method.py", line 128, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+retry\retry_unary.py", line 294, in retry_wra
+pped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+retry\retry_unary.py", line 156, in retry_tar
+get
+    next_sleep = _retry_error_helper(
+        exc,
+    ...<6 lines>...
+        timeout,
+    )
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+retry\retry_base.py", line 216, in _retry_err
+or_helper
+    raise final_exc from source_exc
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+retry\retry_unary.py", line 147, in retry_tar
+get
+    result = target()
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+grpc_helpers.py", line 57, in error_remapped_
+callable
+    raise exceptions.from_grpc_error(exc) fro
+m exc
+google.api_core.exceptions.ResourceExhausted:
+ 429 You exceeded your current quota, please 
+check your plan and billing details. For more
+ information on this error, head to: https://
+ai.google.dev/gemini-api/docs/rate-limits. To
+ monitor your current usage, head to: https:/
+/ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelangua
+ge.googleapis.com/generate_content_free_tier_
+requests, limit: 20, model: gemini-2.5-flash
+Please retry in 35.450260587s. [links {
+  description: "Learn more about Gemini API q
+uotas"
+  url: "https://ai.google.dev/gemini-api/docs
+/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapi
+s.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProject
+PerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 35
+}
+]
+[DEBUG] Chat request from session qv8wz: Hello
+[DEBUG] Creating new session: qv8wz
+[ERROR] Chat error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 35.450260587s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 35
+}
+]
+INFO:     127.0.0.1:55289 - "POST /api/chat HTTP/1.1" 500 Internal Server Error
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+grpc_helpers.py", line 55, in error_remapped_
+callable
+    return callable_(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_intercepto
+r.py", line 276, in __call__
+    response, ignored_call = self._with_call(
+                             ~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+    ...<4 lines>...
+        compression=compression,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_intercepto
+r.py", line 331, in _with_call
+    return call.result(), call
+           ~~~~~~~~~~~^^
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_channel.py
+", line 438, in result
+    raise self
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_intercepto
+r.py", line 314, in continuation
+    response, call = self._thunk(new_method).
+with_call(
+                     ~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~^
+        request,
+        ^^^^^^^^
+    ...<4 lines>...
+        compression=new_compression,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_channel.py
+", line 1173, in with_call
+    return _end_unary_response_blocking(state
+, call, True, None)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_channel.py
+", line 990, in _end_unary_response_blocking
+    raise _InactiveRpcError(state)  # pytype:
+ disable=not-instantiable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+grpc._channel._InactiveRpcError: <_InactiveRp
+cError of RPC that terminated with:
+	status = StatusCode.RESOURCE_EXHAUSTED
+	details = "You exceeded your current quota, 
+please check your plan and billing details. F
+or more information on this error, head to: h
+ttps://ai.google.dev/gemini-api/docs/rate-lim
+its. To monitor your current usage, head to: 
+https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelangua
+ge.googleapis.com/generate_content_free_tier_
+requests, limit: 20, model: gemini-2.5-flash
+Please retry in 7.062322174s."
+	debug_error_string = "UNKNOWN:Error received
+ from peer ipv4:142.250.23.95:443 {grpc_statu
+s:8, grpc_message:"You exceeded your current 
+quota, please check your plan and billing det
+ails. For more information on this error, hea
+d to: https://ai.google.dev/gemini-api/docs/r
+ate-limits. To monitor your current usage, he
+ad to: https://ai.dev/rate-limit. \n* Quota e
+xceeded for metric: generativelanguage.google
+apis.com/generate_content_free_tier_requests,
+ limit: 20, model: gemini-2.5-flash\nPlease r
+etry in 7.062322174s."}"
+>
+
+The above exception was the direct cause of t
+he following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\project\
+myDB\main.py", line 168, in chat_with_agent
+    response = chat.send_message(message)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\generativ
+eai\generative_models.py", line 578, in send_
+message
+    response = self.model.generate_content(
+        contents=history,
+    ...<5 lines>...
+        request_options=request_options,
+    )
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\generativ
+eai\generative_models.py", line 331, in gener
+ate_content
+    response = self._client.generate_content(
+        request,
+        **request_options,
+    )
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\ai\genera
+tivelanguage_v1beta\services\generative_servi
+ce\client.py", line 835, in generate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+gapic_v1\method.py", line 128, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+retry\retry_unary.py", line 294, in retry_wra
+pped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+retry\retry_unary.py", line 156, in retry_tar
+get
+    next_sleep = _retry_error_helper(
+        exc,
+    ...<6 lines>...
+        timeout,
+    )
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+retry\retry_base.py", line 216, in _retry_err
+or_helper
+    raise final_exc from source_exc
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+retry\retry_unary.py", line 147, in retry_tar
+get
+    result = target()
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+grpc_helpers.py", line 57, in error_remapped_
+callable
+    raise exceptions.from_grpc_error(exc) fro
+m exc
+google.api_core.exceptions.ResourceExhausted:
+ 429 You exceeded your current quota, please 
+check your plan and billing details. For more
+ information on this error, head to: https://
+ai.google.dev/gemini-api/docs/rate-limits. To
+ monitor your current usage, head to: https:/
+/ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelangua
+ge.googleapis.com/generate_content_free_tier_
+requests, limit: 20, model: gemini-2.5-flash
+Please retry in 7.062322174s. [links {
+  description: "Learn more about Gemini API q
+uotas"
+  url: "https://ai.google.dev/gemini-api/docs
+/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapi
+s.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProject
+PerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 7
+}
+]
+[DEBUG] Chat request from session qv8wz: ID 1 Brand COLEMAN SAFE
+[DEBUG] Creating new session: qv8wz
+[ERROR] Chat error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 7.062322174s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 7
+}
+]
+INFO:     127.0.0.1:63987 - "POST /api/chat HTTP/1.1" 500 Internal Server Error
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+grpc_helpers.py", line 55, in error_remapped_
+callable
+    return callable_(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_intercepto
+r.py", line 276, in __call__
+    response, ignored_call = self._with_call(
+                             ~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+    ...<4 lines>...
+        compression=compression,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_intercepto
+r.py", line 331, in _with_call
+    return call.result(), call
+           ~~~~~~~~~~~^^
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_channel.py
+", line 438, in result
+    raise self
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_intercepto
+r.py", line 314, in continuation
+    response, call = self._thunk(new_method).
+with_call(
+                     ~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~^
+        request,
+        ^^^^^^^^
+    ...<4 lines>...
+        compression=new_compression,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_channel.py
+", line 1173, in with_call
+    return _end_unary_response_blocking(state
+, call, True, None)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\grpc\_channel.py
+", line 990, in _end_unary_response_blocking
+    raise _InactiveRpcError(state)  # pytype:
+ disable=not-instantiable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+grpc._channel._InactiveRpcError: <_InactiveRp
+cError of RPC that terminated with:
+	status = StatusCode.RESOURCE_EXHAUSTED
+	details = "You exceeded your current quota, 
+please check your plan and billing details. F
+or more information on this error, head to: h
+ttps://ai.google.dev/gemini-api/docs/rate-lim
+its. To monitor your current usage, head to: 
+https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelangua
+ge.googleapis.com/generate_content_free_tier_
+requests, limit: 20, model: gemini-2.5-flash
+Please retry in 32.653965184s."
+	debug_error_string = "UNKNOWN:Error received
+ from peer ipv4:142.250.23.95:443 {grpc_messa
+ge:"You exceeded your current quota, please c
+heck your plan and billing details. For more 
+information on this error, head to: https://a
+i.google.dev/gemini-api/docs/rate-limits. To 
+monitor your current usage, head to: https://
+ai.dev/rate-limit. \n* Quota exceeded for met
+ric: generativelanguage.googleapis.com/genera
+te_content_free_tier_requests, limit: 20, mod
+el: gemini-2.5-flash\nPlease retry in 32.6539
+65184s.", grpc_status:8}"
+>
+
+The above exception was the direct cause of t
+he following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\project\
+myDB\main.py", line 168, in chat_with_agent
+    response = chat.send_message(message)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\generativ
+eai\generative_models.py", line 578, in send_
+message
+    response = self.model.generate_content(
+        contents=history,
+    ...<5 lines>...
+        request_options=request_options,
+    )
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\generativ
+eai\generative_models.py", line 331, in gener
+ate_content
+    response = self._client.generate_content(
+        request,
+        **request_options,
+    )
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\ai\genera
+tivelanguage_v1beta\services\generative_servi
+ce\client.py", line 835, in generate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+gapic_v1\method.py", line 128, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+retry\retry_unary.py", line 294, in retry_wra
+pped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+retry\retry_unary.py", line 156, in retry_tar
+get
+    next_sleep = _retry_error_helper(
+        exc,
+    ...<6 lines>...
+        timeout,
+    )
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+retry\retry_base.py", line 216, in _retry_err
+or_helper
+    raise final_exc from source_exc
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+retry\retry_unary.py", line 147, in retry_tar
+get
+    result = target()
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\project\
+myDB\.venv\Lib\site-packages\google\api_core\
+grpc_helpers.py", line 57, in error_remapped_
+callable
+    raise exceptions.from_grpc_error(exc) fro
+m exc
+google.api_core.exceptions.ResourceExhausted:
+ 429 You exceeded your current quota, please 
+check your plan and billing details. For more
+ information on this error, head to: https://
+ai.google.dev/gemini-api/docs/rate-limits. To
+ monitor your current usage, head to: https:/
+/ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelangua
+ge.googleapis.com/generate_content_free_tier_
+requests, limit: 20, model: gemini-2.5-flash
+Please retry in 32.653965184s. [links {
+  description: "Learn more about Gemini API q
+uotas"
+  url: "https://ai.google.dev/gemini-api/docs
+/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapi
+s.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProject
+PerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 32
+}
+]
+[DEBUG] Chat request from session qv8wz: test
+[DEBUG] Creating new session: qv8wz
+[ERROR] Chat error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 32.653965184s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 32
+}
+]
+INFO:     127.0.0.1:49673 - "POST /api/chat HTTP/1.1" 500 Internal Server Error

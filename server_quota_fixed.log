@@ -1,0 +1,3056 @@
+﻿.\.venv\Scripts\python : C:\Users\0120025
+-Z100\source\project\myDB\main.py:8: Futu
+reWarning: 
+発生場所 行:1 文字:32
++ ... hon.exe /T; .\.venv\Scripts\python 
+-m uvicorn main:app --port 8002 2> ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecifie
+d:     (C:\Users\012002...FutureWarning: 
+:Strin    g) [], RemoteException
+    + FullyQualifiedErrorId : NativeComma
+ndE    rror
+ 
+
+All support for the `google.generativeai`
+ package has ended. It will no longer be 
+receiving 
+updates or bug fixes. Please switch to th
+e `google.genai` package as soon as possi
+ble.
+See README for more details:
+
+https://github.com/google-gemini/deprecat
+ed-generative-ai-python/blob/main/README.
+md
+
+  import google.generativeai as genai
+INFO:     Started server process [252]
+INFO:     Waiting for application startup
+.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0
+.0.1:8002 (Press CTRL+C to quit)
+INFO:     127.0.0.1:64631 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:64631 - "GET /style.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:64631 - "GET /app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64631 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:64631 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57779 - "GET /app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57779 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:57779 - "GET /tents/stats HTTP/1.1" 200 OK
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\grpc_helpers.py", line 55, in err
+or_remapped_callable
+    return callable_(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_in
+terceptor.py", line 276, in __call__
+    response, ignored_call = self._with_c
+all(
+                             ~~~~~~~~~~~~
+~~~^
+        request,
+        ^^^^^^^^
+    ...<4 lines>...
+        compression=compression,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_in
+terceptor.py", line 331, in _with_call
+    return call.result(), call
+           ~~~~~~~~~~~^^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_ch
+annel.py", line 438, in result
+    raise self
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_in
+terceptor.py", line 314, in continuation
+    response, call = self._thunk(new_meth
+od).with_call(
+                     ~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+    ...<4 lines>...
+        compression=new_compression,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_ch
+annel.py", line 1173, in with_call
+    return _end_unary_response_blocking(s
+tate, call, True, None)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_ch
+annel.py", line 990, in _end_unary_respon
+se_blocking
+    raise _InactiveRpcError(state)  # pyt
+ype: disable=not-instantiable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+grpc._channel._InactiveRpcError: <_Inacti
+veRpcError of RPC that terminated with:
+	status = StatusCode.NOT_FOUND
+	details = "models/gemini-3.1-flash-lite 
+is not found for API version v1beta, or i
+s not supported for generateContent. Call
+ ListModels to see the list of available 
+models and their supported methods."
+	debug_error_string = "UNKNOWN:Error rece
+ived from peer ipv4:142.250.194.10:443 {g
+rpc_message:"models/gemini-3.1-flash-lite
+ is not found for API version v1beta, or 
+is not supported for generateContent. Cal
+l ListModels to see the list of available
+ models and their supported methods.", gr
+pc_status:5}"
+>
+
+The above exception was the direct cause 
+of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\main.py", line 168, in chat_with
+_agent
+    response = chat.send_message(message)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\g
+enerativeai\generative_models.py", line 5
+78, in send_message
+    response = self.model.generate_conten
+t(
+        contents=history,
+    ...<5 lines>...
+        request_options=request_options,
+    )
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\g
+enerativeai\generative_models.py", line 3
+31, in generate_content
+    response = self._client.generate_cont
+ent(
+        request,
+        **request_options,
+    )
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+i\generativelanguage_v1beta\services\gene
+rative_service\client.py", line 835, in g
+enerate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\gapic_v1\method.py", line 128, in
+ __call__
+    return wrapped_func(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\retry\retry_unary.py", line 294, 
+in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\retry\retry_unary.py", line 156, 
+in retry_target
+    next_sleep = _retry_error_helper(
+        exc,
+    ...<6 lines>...
+        timeout,
+    )
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\retry\retry_base.py", line 216, i
+n _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\retry\retry_unary.py", line 147, 
+in retry_target
+    result = target()
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\timeout.py", line 130, in func_wi
+th_timeout
+    return func(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\grpc_helpers.py", line 57, in err
+or_remapped_callable
+    raise exceptions.from_grpc_error(exc)
+ from exc
+google.api_core.exceptions.NotFound: 404 
+models/gemini-3.1-flash-lite is not found
+ for API version v1beta, or is not suppor
+ted for generateContent. Call ListModels 
+to see the list of available models and t
+heir supported methods.
+[DEBUG] Chat request from session qv8wz: ID 1
+[DEBUG] Creating new session: qv8wz
+[ERROR] Chat error: 404 models/gemini-3.1-flash-lite is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:49674 - "POST /api/chat HTTP/1.1" 500 Internal Server Error
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\grpc_helpers.py", line 55, in err
+or_remapped_callable
+    return callable_(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_in
+terceptor.py", line 276, in __call__
+    response, ignored_call = self._with_c
+all(
+                             ~~~~~~~~~~~~
+~~~^
+        request,
+        ^^^^^^^^
+    ...<4 lines>...
+        compression=compression,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_in
+terceptor.py", line 331, in _with_call
+    return call.result(), call
+           ~~~~~~~~~~~^^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_ch
+annel.py", line 438, in result
+    raise self
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_in
+terceptor.py", line 314, in continuation
+    response, call = self._thunk(new_meth
+od).with_call(
+                     ~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+    ...<4 lines>...
+        compression=new_compression,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_ch
+annel.py", line 1173, in with_call
+    return _end_unary_response_blocking(s
+tate, call, True, None)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_ch
+annel.py", line 990, in _end_unary_respon
+se_blocking
+    raise _InactiveRpcError(state)  # pyt
+ype: disable=not-instantiable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+grpc._channel._InactiveRpcError: <_Inacti
+veRpcError of RPC that terminated with:
+	status = StatusCode.NOT_FOUND
+	details = "models/gemini-3.1-flash-lite 
+is not found for API version v1beta, or i
+s not supported for generateContent. Call
+ ListModels to see the list of available 
+models and their supported methods."
+	debug_error_string = "UNKNOWN:Error rece
+ived from peer ipv4:142.250.194.10:443 {g
+rpc_message:"models/gemini-3.1-flash-lite
+ is not found for API version v1beta, or 
+is not supported for generateContent. Cal
+l ListModels to see the list of available
+ models and their supported methods.", gr
+pc_status:5}"
+>
+
+The above exception was the direct cause 
+of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\main.py", line 168, in chat_with
+_agent
+    response = chat.send_message(message)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\g
+enerativeai\generative_models.py", line 5
+78, in send_message
+    response = self.model.generate_conten
+t(
+        contents=history,
+    ...<5 lines>...
+        request_options=request_options,
+    )
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\g
+enerativeai\generative_models.py", line 3
+31, in generate_content
+    response = self._client.generate_cont
+ent(
+        request,
+        **request_options,
+    )
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+i\generativelanguage_v1beta\services\gene
+rative_service\client.py", line 835, in g
+enerate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\gapic_v1\method.py", line 128, in
+ __call__
+    return wrapped_func(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\retry\retry_unary.py", line 294, 
+in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\retry\retry_unary.py", line 156, 
+in retry_target
+    next_sleep = _retry_error_helper(
+        exc,
+    ...<6 lines>...
+        timeout,
+    )
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\retry\retry_base.py", line 216, i
+n _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\retry\retry_unary.py", line 147, 
+in retry_target
+    result = target()
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\timeout.py", line 130, in func_wi
+th_timeout
+    return func(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\grpc_helpers.py", line 57, in err
+or_remapped_callable
+    raise exceptions.from_grpc_error(exc)
+ from exc
+google.api_core.exceptions.NotFound: 404 
+models/gemini-3.1-flash-lite is not found
+ for API version v1beta, or is not suppor
+ted for generateContent. Call ListModels 
+to see the list of available models and t
+heir supported methods.
+[DEBUG] Chat request from session qv8wz: Suggest changing Brand for ID 1 to 'GENUINE COLEMAN'
+[DEBUG] Creating new session: qv8wz
+[ERROR] Chat error: 404 models/gemini-3.1-flash-lite is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:56341 - "POST /api/chat HTTP/1.1" 500 Internal Server Error
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\grpc_helpers.py", line 55, in err
+or_remapped_callable
+    return callable_(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_in
+terceptor.py", line 276, in __call__
+    response, ignored_call = self._with_c
+all(
+                             ~~~~~~~~~~~~
+~~~^
+        request,
+        ^^^^^^^^
+    ...<4 lines>...
+        compression=compression,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_in
+terceptor.py", line 331, in _with_call
+    return call.result(), call
+           ~~~~~~~~~~~^^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_ch
+annel.py", line 438, in result
+    raise self
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_in
+terceptor.py", line 314, in continuation
+    response, call = self._thunk(new_meth
+od).with_call(
+                     ~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+    ...<4 lines>...
+        compression=new_compression,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_ch
+annel.py", line 1173, in with_call
+    return _end_unary_response_blocking(s
+tate, call, True, None)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_ch
+annel.py", line 990, in _end_unary_respon
+se_blocking
+    raise _InactiveRpcError(state)  # pyt
+ype: disable=not-instantiable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+grpc._channel._InactiveRpcError: <_Inacti
+veRpcError of RPC that terminated with:
+	status = StatusCode.NOT_FOUND
+	details = "models/gemini-3.1-flash-lite 
+is not found for API version v1beta, or i
+s not supported for generateContent. Call
+ ListModels to see the list of available 
+models and their supported methods."
+	debug_error_string = "UNKNOWN:Error rece
+ived from peer ipv4:142.250.194.10:443 {g
+rpc_status:5, grpc_message:"models/gemini
+-3.1-flash-lite is not found for API vers
+ion v1beta, or is not supported for gener
+ateContent. Call ListModels to see the li
+st of available models and their supporte
+d methods."}"
+>
+
+The above exception was the direct cause 
+of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\main.py", line 168, in chat_with
+_agent
+    response = chat.send_message(message)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\g
+enerativeai\generative_models.py", line 5
+78, in send_message
+    response = self.model.generate_conten
+t(
+        contents=history,
+    ...<5 lines>...
+        request_options=request_options,
+    )
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\g
+enerativeai\generative_models.py", line 3
+31, in generate_content
+    response = self._client.generate_cont
+ent(
+        request,
+        **request_options,
+    )
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+i\generativelanguage_v1beta\services\gene
+rative_service\client.py", line 835, in g
+enerate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\gapic_v1\method.py", line 128, in
+ __call__
+    return wrapped_func(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\retry\retry_unary.py", line 294, 
+in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\retry\retry_unary.py", line 156, 
+in retry_target
+    next_sleep = _retry_error_helper(
+        exc,
+    ...<6 lines>...
+        timeout,
+    )
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\retry\retry_base.py", line 216, i
+n _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\retry\retry_unary.py", line 147, 
+in retry_target
+    result = target()
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\timeout.py", line 130, in func_wi
+th_timeout
+    return func(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\grpc_helpers.py", line 57, in err
+or_remapped_callable
+    raise exceptions.from_grpc_error(exc)
+ from exc
+google.api_core.exceptions.NotFound: 404 
+models/gemini-3.1-flash-lite is not found
+ for API version v1beta, or is not suppor
+ted for generateContent. Call ListModels 
+to see the list of available models and t
+heir supported methods.
+[DEBUG] Chat request from session qv8wz: hello
+[DEBUG] Creating new session: qv8wz
+[ERROR] Chat error: 404 models/gemini-3.1-flash-lite is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:64003 - "POST /api/chat HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:64995 - "GET /app.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:64995 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:64995 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57221 - "GET /api/chat HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59907 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:59907 - "GET /style.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:59907 - "GET /app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59907 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:59907 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49932 - "GET / HTTP/1.1" 304 Not Modified
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:59013 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49932 - "GET /tents HTTP/1.1" 200 OK
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\grpc_helpers.py", line 55, in err
+or_remapped_callable
+    return callable_(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_in
+terceptor.py", line 276, in __call__
+    response, ignored_call = self._with_c
+all(
+                             ~~~~~~~~~~~~
+~~~^
+        request,
+        ^^^^^^^^
+    ...<4 lines>...
+        compression=compression,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_in
+terceptor.py", line 331, in _with_call
+    return call.result(), call
+           ~~~~~~~~~~~^^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_ch
+annel.py", line 438, in result
+    raise self
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_in
+terceptor.py", line 314, in continuation
+    response, call = self._thunk(new_meth
+od).with_call(
+                     ~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+    ...<4 lines>...
+        compression=new_compression,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_ch
+annel.py", line 1173, in with_call
+    return _end_unary_response_blocking(s
+tate, call, True, None)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_ch
+annel.py", line 990, in _end_unary_respon
+se_blocking
+    raise _InactiveRpcError(state)  # pyt
+ype: disable=not-instantiable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+grpc._channel._InactiveRpcError: <_Inacti
+veRpcError of RPC that terminated with:
+	status = StatusCode.NOT_FOUND
+	details = "models/gemini-3.1-flash-lite 
+is not found for API version v1beta, or i
+s not supported for generateContent. Call
+ ListModels to see the list of available 
+models and their supported methods."
+	debug_error_string = "UNKNOWN:Error rece
+ived from peer ipv4:142.250.194.10:443 {g
+rpc_message:"models/gemini-3.1-flash-lite
+ is not found for API version v1beta, or 
+is not supported for generateContent. Cal
+l ListModels to see the list of available
+ models and their supported methods.", gr
+pc_status:5}"
+>
+
+The above exception was the direct cause 
+of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\main.py", line 168, in chat_with
+_agent
+    response = chat.send_message(message)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\g
+enerativeai\generative_models.py", line 5
+78, in send_message
+    response = self.model.generate_conten
+t(
+        contents=history,
+    ...<5 lines>...
+        request_options=request_options,
+    )
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\g
+enerativeai\generative_models.py", line 3
+31, in generate_content
+    response = self._client.generate_cont
+ent(
+        request,
+        **request_options,
+    )
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+i\generativelanguage_v1beta\services\gene
+rative_service\client.py", line 835, in g
+enerate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\gapic_v1\method.py", line 128, in
+ __call__
+    return wrapped_func(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\retry\retry_unary.py", line 294, 
+in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\retry\retry_unary.py", line 156, 
+in retry_target
+    next_sleep = _retry_error_helper(
+        exc,
+    ...<6 lines>...
+        timeout,
+    )
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\retry\retry_base.py", line 216, i
+n _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\retry\retry_unary.py", line 147, 
+in retry_target
+    result = target()
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\timeout.py", line 130, in func_wi
+th_timeout
+    return func(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\grpc_helpers.py", line 57, in err
+or_remapped_callable
+    raise exceptions.from_grpc_error(exc)
+ from exc
+google.api_core.exceptions.NotFound: 404 
+models/gemini-3.1-flash-lite is not found
+ for API version v1beta, or is not suppor
+ted for generateContent. Call ListModels 
+to see the list of available models and t
+heir supported methods.
+[DEBUG] Chat request from session qv8wz: test message
+[DEBUG] Creating new session: qv8wz
+[ERROR] Chat error: 404 models/gemini-3.1-flash-lite is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:57689 - "POST /api/chat HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:55009 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:55009 - "GET /style.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:55009 - "GET /app.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:55009 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:55009 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53457 - "GET /app.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53457 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:53457 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65375 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:65375 - "GET /app.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:65375 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:65375 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56159 - "GET / HTTP/1.1" 304 Not Modified
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:56159 - "GET /tents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64549 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49348 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:49348 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:49348 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50447 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50447 - "GET /style.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50447 - "GET /app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50447 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:50447 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50447 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50447 - "GET /app.js HTTP/1.1" 304 Not Modified
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:50447 - "GET /tents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52691 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57702 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:57702 - "GET /app.js HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:57702 - "GET /tents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53704 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54612 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:54612 - "GET /app.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:54612 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:54612 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60297 - "GET /app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60297 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:60297 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57351 - "GET /static/app.js HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58763 - "GET /style.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:58219 - "GET /app.js HTTP/1.1" 304 Not Modified
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:58219 - "GET /tents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58763 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63670 - "GET /app.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:63670 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:63670 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60146 - "GET /app.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:60146 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:60146 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60993 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:60993 - "GET /app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60993 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:60993 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62127 - "GET /app.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:62127 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:62127 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57561 - "GET /app.js HTTP/1.1" 304 Not Modified
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:57561 - "GET /tents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49674 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58108 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58108 - "GET /style.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58108 - "GET /app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58108 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:58108 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59533 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:59533 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56154 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:56154 - "GET /style.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:56154 - "GET /app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56154 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:56154 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51913 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:51913 - "GET /style.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:54997 - "GET /app.js HTTP/1.1" 304 Not Modified
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:54997 - "GET /tents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51913 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51913 - "GET / HTTP/1.1" 304 Not Modified
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:51913 - "GET /tents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54997 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62913 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:62913 - "GET /style.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:62913 - "GET /app.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:62913 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:62913 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52558 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:52558 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58644 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:58644 - "GET /style.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:58644 - "GET /app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58644 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:58644 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53899 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53899 - "GET /style.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53899 - "GET /app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53899 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:53899 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59122 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:59122 - "GET /app.js HTTP/1.1" 304 Not Modified
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:59122 - "GET /tents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60256 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51887 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:51887 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56507 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:56507 - "GET /style.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:56507 - "GET /app.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:56507 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:56507 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57171 - "GET / HTTP/1.1" 304 Not Modified
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:57171 - "GET /tents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64550 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61321 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:61321 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:61321 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61435 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:61435 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:61435 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52891 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:52891 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:52891 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59857 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:59857 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62410 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:62410 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59654 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:59654 - "GET /style.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:59654 - "GET /app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59654 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:59654 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52761 - "POST /tents/batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52761 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:52761 - "GET /tents/stats HTTP/1.1" 200 OK
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\grpc_helpers.py", line 55, in err
+or_remapped_callable
+    return callable_(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_in
+terceptor.py", line 276, in __call__
+    response, ignored_call = self._with_c
+all(
+                             ~~~~~~~~~~~~
+~~~^
+        request,
+        ^^^^^^^^
+    ...<4 lines>...
+        compression=compression,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_in
+terceptor.py", line 331, in _with_call
+    return call.result(), call
+           ~~~~~~~~~~~^^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_ch
+annel.py", line 438, in result
+    raise self
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_in
+terceptor.py", line 314, in continuation
+    response, call = self._thunk(new_meth
+od).with_call(
+                     ~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+    ...<4 lines>...
+        compression=new_compression,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_ch
+annel.py", line 1173, in with_call
+    return _end_unary_response_blocking(s
+tate, call, True, None)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_ch
+annel.py", line 990, in _end_unary_respon
+se_blocking
+    raise _InactiveRpcError(state)  # pyt
+ype: disable=not-instantiable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+grpc._channel._InactiveRpcError: <_Inacti
+veRpcError of RPC that terminated with:
+	status = StatusCode.NOT_FOUND
+	details = "models/gemini-3.1-flash-lite 
+is not found for API version v1beta, or i
+s not supported for generateContent. Call
+ ListModels to see the list of available 
+models and their supported methods."
+	debug_error_string = "UNKNOWN:Error rece
+ived from peer ipv4:142.250.21.95:443 {gr
+pc_status:5, grpc_message:"models/gemini-
+3.1-flash-lite is not found for API versi
+on v1beta, or is not supported for genera
+teContent. Call ListModels to see the lis
+t of available models and their supported
+ methods."}"
+>
+
+The above exception was the direct cause 
+of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\main.py", line 168, in chat_with
+_agent
+    response = chat.send_message(message)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\g
+enerativeai\generative_models.py", line 5
+78, in send_message
+    response = self.model.generate_conten
+t(
+        contents=history,
+    ...<5 lines>...
+        request_options=request_options,
+    )
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\g
+enerativeai\generative_models.py", line 3
+31, in generate_content
+    response = self._client.generate_cont
+ent(
+        request,
+        **request_options,
+    )
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+i\generativelanguage_v1beta\services\gene
+rative_service\client.py", line 835, in g
+enerate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\gapic_v1\method.py", line 128, in
+ __call__
+    return wrapped_func(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\retry\retry_unary.py", line 294, 
+in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\retry\retry_unary.py", line 156, 
+in retry_target
+    next_sleep = _retry_error_helper(
+        exc,
+    ...<6 lines>...
+        timeout,
+    )
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\retry\retry_base.py", line 216, i
+n _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\retry\retry_unary.py", line 147, 
+in retry_target
+    result = target()
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\timeout.py", line 130, in func_wi
+th_timeout
+    return func(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\grpc_helpers.py", line 57, in err
+or_remapped_callable
+    raise exceptions.from_grpc_error(exc)
+ from exc
+google.api_core.exceptions.NotFound: 404 
+models/gemini-3.1-flash-lite is not found
+ for API version v1beta, or is not suppor
+ted for generateContent. Call ListModels 
+to see the list of available models and t
+heir supported methods.
+[DEBUG] Chat request from session qv8wz: Hello
+[DEBUG] Creating new session: qv8wz
+[ERROR] Chat error: 404 models/gemini-3.1-flash-lite is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:50095 - "POST /api/chat HTTP/1.1" 500 Internal Server Error
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\grpc_helpers.py", line 55, in err
+or_remapped_callable
+    return callable_(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_in
+terceptor.py", line 276, in __call__
+    response, ignored_call = self._with_c
+all(
+                             ~~~~~~~~~~~~
+~~~^
+        request,
+        ^^^^^^^^
+    ...<4 lines>...
+        compression=compression,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_in
+terceptor.py", line 331, in _with_call
+    return call.result(), call
+           ~~~~~~~~~~~^^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_ch
+annel.py", line 438, in result
+    raise self
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_in
+terceptor.py", line 314, in continuation
+    response, call = self._thunk(new_meth
+od).with_call(
+                     ~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+    ...<4 lines>...
+        compression=new_compression,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_ch
+annel.py", line 1173, in with_call
+    return _end_unary_response_blocking(s
+tate, call, True, None)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\grpc\_ch
+annel.py", line 990, in _end_unary_respon
+se_blocking
+    raise _InactiveRpcError(state)  # pyt
+ype: disable=not-instantiable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+grpc._channel._InactiveRpcError: <_Inacti
+veRpcError of RPC that terminated with:
+	status = StatusCode.NOT_FOUND
+	details = "models/gemini-3.1-flash-lite 
+is not found for API version v1beta, or i
+s not supported for generateContent. Call
+ ListModels to see the list of available 
+models and their supported methods."
+	debug_error_string = "UNKNOWN:Error rece
+ived from peer ipv4:142.250.21.95:443 {gr
+pc_status:5, grpc_message:"models/gemini-
+3.1-flash-lite is not found for API versi
+on v1beta, or is not supported for genera
+teContent. Call ListModels to see the lis
+t of available models and their supported
+ methods."}"
+>
+
+The above exception was the direct cause 
+of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\main.py", line 168, in chat_with
+_agent
+    response = chat.send_message(message)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\g
+enerativeai\generative_models.py", line 5
+78, in send_message
+    response = self.model.generate_conten
+t(
+        contents=history,
+    ...<5 lines>...
+        request_options=request_options,
+    )
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\g
+enerativeai\generative_models.py", line 3
+31, in generate_content
+    response = self._client.generate_cont
+ent(
+        request,
+        **request_options,
+    )
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+i\generativelanguage_v1beta\services\gene
+rative_service\client.py", line 835, in g
+enerate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\gapic_v1\method.py", line 128, in
+ __call__
+    return wrapped_func(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\retry\retry_unary.py", line 294, 
+in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\retry\retry_unary.py", line 156, 
+in retry_target
+    next_sleep = _retry_error_helper(
+        exc,
+    ...<6 lines>...
+        timeout,
+    )
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\retry\retry_base.py", line 216, i
+n _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\retry\retry_unary.py", line 147, 
+in retry_target
+    result = target()
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\timeout.py", line 130, in func_wi
+th_timeout
+    return func(*args, **kwargs)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\google\a
+pi_core\grpc_helpers.py", line 57, in err
+or_remapped_callable
+    raise exceptions.from_grpc_error(exc)
+ from exc
+google.api_core.exceptions.NotFound: 404 
+models/gemini-3.1-flash-lite is not found
+ for API version v1beta, or is not suppor
+ted for generateContent. Call ListModels 
+to see the list of available models and t
+heir supported methods.
+[DEBUG] Chat request from session qv8wz: 編集機能の一覧
+[DEBUG] Creating new session: qv8wz
+[ERROR] Chat error: 404 models/gemini-3.1-flash-lite is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:64253 - "POST /api/chat HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:50785 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50785 - "GET /style.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50785 - "GET /app.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50785 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:50785 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50785 - "GET / HTTP/1.1" 304 Not Modified
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:50785 - "GET /tents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53834 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62101 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:62101 - "GET /app.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:62101 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:62101 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55390 - "POST /tents/batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55390 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:55390 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58310 - "GET /style.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:49958 - "GET /app.js HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:58310 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49958 - "GET /tents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61314 - "GET /app.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:54595 - "GET /tents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57899 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:57899 - "GET /app.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:57899 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:57899 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50869 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50869 - "GET /app.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50869 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:50869 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62387 - "POST /tents/batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62387 - "GET /tents HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\uvicorn\
+protocols\http\h11_impl.py", line 415, in
+ run_asgi
+    result = await app(  # type: ignore[f
+unc-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.se
+nd
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\uvicorn\
+middleware\proxy_headers.py", line 60, in
+ __call__
+    return await self.app(scope, receive,
+ send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+applications.py", line 1163, in __call__
+    await super().__call__(scope, receive
+, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\applications.py", line 90, in __call__
+    await self.middleware_stack(scope, re
+ceive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\errors.py", line 186, in __c
+all__
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\errors.py", line 164, in __c
+all__
+    await self.app(scope, receive, _send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\exceptions.py", line 63, in 
+__call__
+    await wrap_app_handling_exceptions(se
+lf.app, conn)(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 53, in wra
+pped_app
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 42, in wra
+pped_app
+    await app(scope, receive, sender)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+middleware\asyncexitstack.py", line 18, i
+n __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 660, in __call__
+    await self.middleware_stack(scope, re
+ceive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 680, in app
+    await route.handle(scope, receive, se
+nd)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 134, in app
+    await wrap_app_handling_exceptions(ap
+p, request)(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 53, in wra
+pped_app
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 42, in wra
+pped_app
+    await app(scope, receive, sender)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 695, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 300, in serialize_respo
+nse
+    raise ResponseValidationError(
+    ...<3 lines>...
+    )
+fastapi.exceptions.ResponseValidationErro
+r: 1 validation error:
+  {'type': 'int_from_float', 'loc': ('res
+ponse', 112, 'capacity'), 'msg': 'Input s
+hould be a valid integer, got a number wi
+th a fractional part', 'input': Decimal('
+2.5')}
+
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\main.py", line 181, in read_tent
+s
+    GET /tents
+INFO:     127.0.0.1:55165 - "POST /tents/batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55165 - "GET /tents HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\uvicorn\
+protocols\http\h11_impl.py", line 415, in
+ run_asgi
+    result = await app(  # type: ignore[f
+unc-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.se
+nd
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\uvicorn\
+middleware\proxy_headers.py", line 60, in
+ __call__
+    return await self.app(scope, receive,
+ send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+applications.py", line 1163, in __call__
+    await super().__call__(scope, receive
+, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\applications.py", line 90, in __call__
+    await self.middleware_stack(scope, re
+ceive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\errors.py", line 186, in __c
+all__
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\errors.py", line 164, in __c
+all__
+    await self.app(scope, receive, _send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\exceptions.py", line 63, in 
+__call__
+    await wrap_app_handling_exceptions(se
+lf.app, conn)(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 53, in wra
+pped_app
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 42, in wra
+pped_app
+    await app(scope, receive, sender)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+middleware\asyncexitstack.py", line 18, i
+n __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 660, in __call__
+    await self.middleware_stack(scope, re
+ceive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 680, in app
+    await route.handle(scope, receive, se
+nd)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 134, in app
+    await wrap_app_handling_exceptions(ap
+p, request)(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 53, in wra
+pped_app
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 42, in wra
+pped_app
+    await app(scope, receive, sender)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 695, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 300, in serialize_respo
+nse
+    raise ResponseValidationError(
+    ...<3 lines>...
+    )
+fastapi.exceptions.ResponseValidationErro
+r: 1 validation error:
+  {'type': 'int_from_float', 'loc': ('res
+ponse', 112, 'capacity'), 'msg': 'Input s
+hould be a valid integer, got a number wi
+th a fractional part', 'input': Decimal('
+2.5')}
+
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\main.py", line 181, in read_tent
+s
+    GET /tents
+INFO:     127.0.0.1:53962 - "GET /app.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53962 - "GET /tents HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\uvicorn\
+protocols\http\h11_impl.py", line 415, in
+ run_asgi
+    result = await app(  # type: ignore[f
+unc-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.se
+nd
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\uvicorn\
+middleware\proxy_headers.py", line 60, in
+ __call__
+    return await self.app(scope, receive,
+ send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+applications.py", line 1163, in __call__
+    await super().__call__(scope, receive
+, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\applications.py", line 90, in __call__
+    await self.middleware_stack(scope, re
+ceive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\errors.py", line 186, in __c
+all__
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\errors.py", line 164, in __c
+all__
+    await self.app(scope, receive, _send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\exceptions.py", line 63, in 
+__call__
+    await wrap_app_handling_exceptions(se
+lf.app, conn)(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 53, in wra
+pped_app
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 42, in wra
+pped_app
+    await app(scope, receive, sender)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+middleware\asyncexitstack.py", line 18, i
+n __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 660, in __call__
+    await self.middleware_stack(scope, re
+ceive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 680, in app
+    await route.handle(scope, receive, se
+nd)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 134, in app
+    await wrap_app_handling_exceptions(ap
+p, request)(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 53, in wra
+pped_app
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 42, in wra
+pped_app
+    await app(scope, receive, sender)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 695, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 300, in serialize_respo
+nse
+    raise ResponseValidationError(
+    ...<3 lines>...
+    )
+fastapi.exceptions.ResponseValidationErro
+r: 1 validation error:
+  {'type': 'int_from_float', 'loc': ('res
+ponse', 112, 'capacity'), 'msg': 'Input s
+hould be a valid integer, got a number wi
+th a fractional part', 'input': Decimal('
+2.5')}
+
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\main.py", line 181, in read_tent
+s
+    GET /tents
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:63466 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57466 - "GET /tents HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\uvicorn\
+protocols\http\h11_impl.py", line 415, in
+ run_asgi
+    result = await app(  # type: ignore[f
+unc-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.se
+nd
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\uvicorn\
+middleware\proxy_headers.py", line 60, in
+ __call__
+    return await self.app(scope, receive,
+ send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+applications.py", line 1163, in __call__
+    await super().__call__(scope, receive
+, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\applications.py", line 90, in __call__
+    await self.middleware_stack(scope, re
+ceive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\errors.py", line 186, in __c
+all__
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\errors.py", line 164, in __c
+all__
+    await self.app(scope, receive, _send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\exceptions.py", line 63, in 
+__call__
+    await wrap_app_handling_exceptions(se
+lf.app, conn)(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 53, in wra
+pped_app
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 42, in wra
+pped_app
+    await app(scope, receive, sender)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+middleware\asyncexitstack.py", line 18, i
+n __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 660, in __call__
+    await self.middleware_stack(scope, re
+ceive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 680, in app
+    await route.handle(scope, receive, se
+nd)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 134, in app
+    await wrap_app_handling_exceptions(ap
+p, request)(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 53, in wra
+pped_app
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 42, in wra
+pped_app
+    await app(scope, receive, sender)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 695, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 300, in serialize_respo
+nse
+    raise ResponseValidationError(
+    ...<3 lines>...
+    )
+fastapi.exceptions.ResponseValidationErro
+r: 1 validation error:
+  {'type': 'int_from_float', 'loc': ('res
+ponse', 112, 'capacity'), 'msg': 'Input s
+hould be a valid integer, got a number wi
+th a fractional part', 'input': Decimal('
+2.5')}
+
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\main.py", line 181, in read_tent
+s
+    GET /tents
+INFO:     127.0.0.1:56950 - "GET /tents HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\uvicorn\
+protocols\http\h11_impl.py", line 415, in
+ run_asgi
+    result = await app(  # type: ignore[f
+unc-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.se
+nd
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\uvicorn\
+middleware\proxy_headers.py", line 60, in
+ __call__
+    return await self.app(scope, receive,
+ send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+applications.py", line 1163, in __call__
+    await super().__call__(scope, receive
+, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\applications.py", line 90, in __call__
+    await self.middleware_stack(scope, re
+ceive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\errors.py", line 186, in __c
+all__
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\errors.py", line 164, in __c
+all__
+    await self.app(scope, receive, _send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\exceptions.py", line 63, in 
+__call__
+    await wrap_app_handling_exceptions(se
+lf.app, conn)(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 53, in wra
+pped_app
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 42, in wra
+pped_app
+    await app(scope, receive, sender)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+middleware\asyncexitstack.py", line 18, i
+n __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 660, in __call__
+    await self.middleware_stack(scope, re
+ceive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 680, in app
+    await route.handle(scope, receive, se
+nd)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 134, in app
+    await wrap_app_handling_exceptions(ap
+p, request)(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 53, in wra
+pped_app
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 42, in wra
+pped_app
+    await app(scope, receive, sender)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 695, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 300, in serialize_respo
+nse
+    raise ResponseValidationError(
+    ...<3 lines>...
+    )
+fastapi.exceptions.ResponseValidationErro
+r: 1 validation error:
+  {'type': 'int_from_float', 'loc': ('res
+ponse', 112, 'capacity'), 'msg': 'Input s
+hould be a valid integer, got a number wi
+th a fractional part', 'input': Decimal('
+2.5')}
+
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\main.py", line 181, in read_tent
+s
+    GET /tents
+INFO:     127.0.0.1:51577 - "GET /tents HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\uvicorn\
+protocols\http\h11_impl.py", line 415, in
+ run_asgi
+    result = await app(  # type: ignore[f
+unc-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.se
+nd
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\uvicorn\
+middleware\proxy_headers.py", line 60, in
+ __call__
+    return await self.app(scope, receive,
+ send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+applications.py", line 1163, in __call__
+    await super().__call__(scope, receive
+, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\applications.py", line 90, in __call__
+    await self.middleware_stack(scope, re
+ceive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\errors.py", line 186, in __c
+all__
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\errors.py", line 164, in __c
+all__
+    await self.app(scope, receive, _send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\exceptions.py", line 63, in 
+__call__
+    await wrap_app_handling_exceptions(se
+lf.app, conn)(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 53, in wra
+pped_app
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 42, in wra
+pped_app
+    await app(scope, receive, sender)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+middleware\asyncexitstack.py", line 18, i
+n __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 660, in __call__
+    await self.middleware_stack(scope, re
+ceive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 680, in app
+    await route.handle(scope, receive, se
+nd)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 134, in app
+    await wrap_app_handling_exceptions(ap
+p, request)(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 53, in wra
+pped_app
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 42, in wra
+pped_app
+    await app(scope, receive, sender)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 695, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 300, in serialize_respo
+nse
+    raise ResponseValidationError(
+    ...<3 lines>...
+    )
+fastapi.exceptions.ResponseValidationErro
+r: 1 validation error:
+  {'type': 'int_from_float', 'loc': ('res
+ponse', 112, 'capacity'), 'msg': 'Input s
+hould be a valid integer, got a number wi
+th a fractional part', 'input': Decimal('
+2.5')}
+
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\main.py", line 181, in read_tent
+s
+    GET /tents
+INFO:     127.0.0.1:56692 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:56692 - "GET /style.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56692 - "GET /app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56692 - "GET /tents HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\uvicorn\
+protocols\http\h11_impl.py", line 415, in
+ run_asgi
+    result = await app(  # type: ignore[f
+unc-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.se
+nd
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\uvicorn\
+middleware\proxy_headers.py", line 60, in
+ __call__
+    return await self.app(scope, receive,
+ send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+applications.py", line 1163, in __call__
+    await super().__call__(scope, receive
+, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\applications.py", line 90, in __call__
+    await self.middleware_stack(scope, re
+ceive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\errors.py", line 186, in __c
+all__
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\errors.py", line 164, in __c
+all__
+    await self.app(scope, receive, _send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\exceptions.py", line 63, in 
+__call__
+    await wrap_app_handling_exceptions(se
+lf.app, conn)(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 53, in wra
+pped_app
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 42, in wra
+pped_app
+    await app(scope, receive, sender)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+middleware\asyncexitstack.py", line 18, i
+n __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 660, in __call__
+    await self.middleware_stack(scope, re
+ceive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 680, in app
+    await route.handle(scope, receive, se
+nd)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 134, in app
+    await wrap_app_handling_exceptions(ap
+p, request)(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 53, in wra
+pped_app
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 42, in wra
+pped_app
+    await app(scope, receive, sender)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 695, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 300, in serialize_respo
+nse
+    raise ResponseValidationError(
+    ...<3 lines>...
+    )
+fastapi.exceptions.ResponseValidationErro
+r: 1 validation error:
+  {'type': 'int_from_float', 'loc': ('res
+ponse', 112, 'capacity'), 'msg': 'Input s
+hould be a valid integer, got a number wi
+th a fractional part', 'input': Decimal('
+2.5')}
+
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\main.py", line 181, in read_tent
+s
+    GET /tents
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:59776 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53185 - "GET /style.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:61615 - "GET /app.js HTTP/1.1" 304 Not Modified
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:53185 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61615 - "GET /tents HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\uvicorn\
+protocols\http\h11_impl.py", line 415, in
+ run_asgi
+    result = await app(  # type: ignore[f
+unc-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.se
+nd
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\uvicorn\
+middleware\proxy_headers.py", line 60, in
+ __call__
+    return await self.app(scope, receive,
+ send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+applications.py", line 1163, in __call__
+    await super().__call__(scope, receive
+, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\applications.py", line 90, in __call__
+    await self.middleware_stack(scope, re
+ceive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\errors.py", line 186, in __c
+all__
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\errors.py", line 164, in __c
+all__
+    await self.app(scope, receive, _send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\exceptions.py", line 63, in 
+__call__
+    await wrap_app_handling_exceptions(se
+lf.app, conn)(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 53, in wra
+pped_app
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 42, in wra
+pped_app
+    await app(scope, receive, sender)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+middleware\asyncexitstack.py", line 18, i
+n __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 660, in __call__
+    await self.middleware_stack(scope, re
+ceive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 680, in app
+    await route.handle(scope, receive, se
+nd)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 134, in app
+    await wrap_app_handling_exceptions(ap
+p, request)(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 53, in wra
+pped_app
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 42, in wra
+pped_app
+    await app(scope, receive, sender)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 695, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 300, in serialize_respo
+nse
+    raise ResponseValidationError(
+    ...<3 lines>...
+    )
+fastapi.exceptions.ResponseValidationErro
+r: 1 validation error:
+  {'type': 'int_from_float', 'loc': ('res
+ponse', 112, 'capacity'), 'msg': 'Input s
+hould be a valid integer, got a number wi
+th a fractional part', 'input': Decimal('
+2.5')}
+
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\main.py", line 181, in read_tent
+s
+    GET /tents
+INFO:     127.0.0.1:50643 - "GET /style.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:54110 - "GET /app.js HTTP/1.1" 304 Not Modified
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:50643 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54110 - "GET /tents HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\uvicorn\
+protocols\http\h11_impl.py", line 415, in
+ run_asgi
+    result = await app(  # type: ignore[f
+unc-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.se
+nd
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\uvicorn\
+middleware\proxy_headers.py", line 60, in
+ __call__
+    return await self.app(scope, receive,
+ send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+applications.py", line 1163, in __call__
+    await super().__call__(scope, receive
+, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\applications.py", line 90, in __call__
+    await self.middleware_stack(scope, re
+ceive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\errors.py", line 186, in __c
+all__
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\errors.py", line 164, in __c
+all__
+    await self.app(scope, receive, _send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\exceptions.py", line 63, in 
+__call__
+    await wrap_app_handling_exceptions(se
+lf.app, conn)(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 53, in wra
+pped_app
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 42, in wra
+pped_app
+    await app(scope, receive, sender)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+middleware\asyncexitstack.py", line 18, i
+n __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 660, in __call__
+    await self.middleware_stack(scope, re
+ceive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 680, in app
+    await route.handle(scope, receive, se
+nd)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 134, in app
+    await wrap_app_handling_exceptions(ap
+p, request)(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 53, in wra
+pped_app
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 42, in wra
+pped_app
+    await app(scope, receive, sender)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 695, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 300, in serialize_respo
+nse
+    raise ResponseValidationError(
+    ...<3 lines>...
+    )
+fastapi.exceptions.ResponseValidationErro
+r: 1 validation error:
+  {'type': 'int_from_float', 'loc': ('res
+ponse', 112, 'capacity'), 'msg': 'Input s
+hould be a valid integer, got a number wi
+th a fractional part', 'input': Decimal('
+2.5')}
+
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\main.py", line 181, in read_tent
+s
+    GET /tents
+INFO:     127.0.0.1:59752 - "GET /style.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:59752 - "GET /app.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:59752 - "GET /tents HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\uvicorn\
+protocols\http\h11_impl.py", line 415, in
+ run_asgi
+    result = await app(  # type: ignore[f
+unc-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.se
+nd
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\uvicorn\
+middleware\proxy_headers.py", line 60, in
+ __call__
+    return await self.app(scope, receive,
+ send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+applications.py", line 1163, in __call__
+    await super().__call__(scope, receive
+, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\applications.py", line 90, in __call__
+    await self.middleware_stack(scope, re
+ceive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\errors.py", line 186, in __c
+all__
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\errors.py", line 164, in __c
+all__
+    await self.app(scope, receive, _send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\exceptions.py", line 63, in 
+__call__
+    await wrap_app_handling_exceptions(se
+lf.app, conn)(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 53, in wra
+pped_app
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 42, in wra
+pped_app
+    await app(scope, receive, sender)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+middleware\asyncexitstack.py", line 18, i
+n __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 660, in __call__
+    await self.middleware_stack(scope, re
+ceive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 680, in app
+    await route.handle(scope, receive, se
+nd)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 134, in app
+    await wrap_app_handling_exceptions(ap
+p, request)(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 53, in wra
+pped_app
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 42, in wra
+pped_app
+    await app(scope, receive, sender)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 695, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 300, in serialize_respo
+nse
+    raise ResponseValidationError(
+    ...<3 lines>...
+    )
+fastapi.exceptions.ResponseValidationErro
+r: 1 validation error:
+  {'type': 'int_from_float', 'loc': ('res
+ponse', 112, 'capacity'), 'msg': 'Input s
+hould be a valid integer, got a number wi
+th a fractional part', 'input': Decimal('
+2.5')}
+
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\main.py", line 181, in read_tent
+s
+    GET /tents
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:57211 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64926 - "GET /tents HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\uvicorn\
+protocols\http\h11_impl.py", line 415, in
+ run_asgi
+    result = await app(  # type: ignore[f
+unc-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.se
+nd
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\uvicorn\
+middleware\proxy_headers.py", line 60, in
+ __call__
+    return await self.app(scope, receive,
+ send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+applications.py", line 1163, in __call__
+    await super().__call__(scope, receive
+, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\applications.py", line 90, in __call__
+    await self.middleware_stack(scope, re
+ceive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\errors.py", line 186, in __c
+all__
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\errors.py", line 164, in __c
+all__
+    await self.app(scope, receive, _send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\exceptions.py", line 63, in 
+__call__
+    await wrap_app_handling_exceptions(se
+lf.app, conn)(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 53, in wra
+pped_app
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 42, in wra
+pped_app
+    await app(scope, receive, sender)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+middleware\asyncexitstack.py", line 18, i
+n __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 660, in __call__
+    await self.middleware_stack(scope, re
+ceive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 680, in app
+    await route.handle(scope, receive, se
+nd)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 134, in app
+    await wrap_app_handling_exceptions(ap
+p, request)(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 53, in wra
+pped_app
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 42, in wra
+pped_app
+    await app(scope, receive, sender)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 695, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 300, in serialize_respo
+nse
+    raise ResponseValidationError(
+    ...<3 lines>...
+    )
+fastapi.exceptions.ResponseValidationErro
+r: 1 validation error:
+  {'type': 'int_from_float', 'loc': ('res
+ponse', 112, 'capacity'), 'msg': 'Input s
+hould be a valid integer, got a number wi
+th a fractional part', 'input': Decimal('
+2.5')}
+
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\main.py", line 181, in read_tent
+s
+    GET /tents
+INFO:     127.0.0.1:64956 - "GET /style.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:64956 - "GET /app.js HTTP/1.1" 304 Not Modified
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:58223 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64956 - "GET /tents HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\uvicorn\
+protocols\http\h11_impl.py", line 415, in
+ run_asgi
+    result = await app(  # type: ignore[f
+unc-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.se
+nd
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\uvicorn\
+middleware\proxy_headers.py", line 60, in
+ __call__
+    return await self.app(scope, receive,
+ send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+applications.py", line 1163, in __call__
+    await super().__call__(scope, receive
+, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\applications.py", line 90, in __call__
+    await self.middleware_stack(scope, re
+ceive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\errors.py", line 186, in __c
+all__
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\errors.py", line 164, in __c
+all__
+    await self.app(scope, receive, _send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\exceptions.py", line 63, in 
+__call__
+    await wrap_app_handling_exceptions(se
+lf.app, conn)(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 53, in wra
+pped_app
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 42, in wra
+pped_app
+    await app(scope, receive, sender)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+middleware\asyncexitstack.py", line 18, i
+n __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 660, in __call__
+    await self.middleware_stack(scope, re
+ceive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 680, in app
+    await route.handle(scope, receive, se
+nd)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 134, in app
+    await wrap_app_handling_exceptions(ap
+p, request)(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 53, in wra
+pped_app
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 42, in wra
+pped_app
+    await app(scope, receive, sender)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 695, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 300, in serialize_respo
+nse
+    raise ResponseValidationError(
+    ...<3 lines>...
+    )
+fastapi.exceptions.ResponseValidationErro
+r: 1 validation error:
+  {'type': 'int_from_float', 'loc': ('res
+ponse', 112, 'capacity'), 'msg': 'Input s
+hould be a valid integer, got a number wi
+th a fractional part', 'input': Decimal('
+2.5')}
+
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\main.py", line 181, in read_tent
+s
+    GET /tents
+INFO:     127.0.0.1:52009 - "GET /style.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53439 - "GET /app.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:64438 - "GET /style.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:64438 - "GET /app.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:64438 - "GET /tents HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\uvicorn\
+protocols\http\h11_impl.py", line 415, in
+ run_asgi
+    result = await app(  # type: ignore[f
+unc-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.se
+nd
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\uvicorn\
+middleware\proxy_headers.py", line 60, in
+ __call__
+    return await self.app(scope, receive,
+ send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+applications.py", line 1163, in __call__
+    await super().__call__(scope, receive
+, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\applications.py", line 90, in __call__
+    await self.middleware_stack(scope, re
+ceive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\errors.py", line 186, in __c
+all__
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\errors.py", line 164, in __c
+all__
+    await self.app(scope, receive, _send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\exceptions.py", line 63, in 
+__call__
+    await wrap_app_handling_exceptions(se
+lf.app, conn)(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 53, in wra
+pped_app
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 42, in wra
+pped_app
+    await app(scope, receive, sender)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+middleware\asyncexitstack.py", line 18, i
+n __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 660, in __call__
+    await self.middleware_stack(scope, re
+ceive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 680, in app
+    await route.handle(scope, receive, se
+nd)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 134, in app
+    await wrap_app_handling_exceptions(ap
+p, request)(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 53, in wra
+pped_app
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 42, in wra
+pped_app
+    await app(scope, receive, sender)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 695, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 300, in serialize_respo
+nse
+    raise ResponseValidationError(
+    ...<3 lines>...
+    )
+fastapi.exceptions.ResponseValidationErro
+r: 1 validation error:
+  {'type': 'int_from_float', 'loc': ('res
+ponse', 112, 'capacity'), 'msg': 'Input s
+hould be a valid integer, got a number wi
+th a fractional part', 'input': Decimal('
+2.5')}
+
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\main.py", line 181, in read_tent
+s
+    GET /tents
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:49309 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51919 - "GET /tents HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\uvicorn\
+protocols\http\h11_impl.py", line 415, in
+ run_asgi
+    result = await app(  # type: ignore[f
+unc-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.se
+nd
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\uvicorn\
+middleware\proxy_headers.py", line 60, in
+ __call__
+    return await self.app(scope, receive,
+ send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+applications.py", line 1163, in __call__
+    await super().__call__(scope, receive
+, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\applications.py", line 90, in __call__
+    await self.middleware_stack(scope, re
+ceive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\errors.py", line 186, in __c
+all__
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\errors.py", line 164, in __c
+all__
+    await self.app(scope, receive, _send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\middleware\exceptions.py", line 63, in 
+__call__
+    await wrap_app_handling_exceptions(se
+lf.app, conn)(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 53, in wra
+pped_app
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 42, in wra
+pped_app
+    await app(scope, receive, sender)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+middleware\asyncexitstack.py", line 18, i
+n __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 660, in __call__
+    await self.middleware_stack(scope, re
+ceive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 680, in app
+    await route.handle(scope, receive, se
+nd)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 134, in app
+    await wrap_app_handling_exceptions(ap
+p, request)(scope, receive, send)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 53, in wra
+pped_app
+    raise exc
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\starlett
+e\_exception_handler.py", line 42, in wra
+pped_app
+    await app(scope, receive, sender)
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 695, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\.venv\Lib\site-packages\fastapi\
+routing.py", line 300, in serialize_respo
+nse
+    raise ResponseValidationError(
+    ...<3 lines>...
+    )
+fastapi.exceptions.ResponseValidationErro
+r: 1 validation error:
+  {'type': 'int_from_float', 'loc': ('res
+ponse', 112, 'capacity'), 'msg': 'Input s
+hould be a valid integer, got a number wi
+th a fractional part', 'input': Decimal('
+2.5')}
+
+  File "C:\Users\0120025-Z100\source\proj
+ect\myDB\main.py", line 181, in read_tent
+s
+    GET /tents

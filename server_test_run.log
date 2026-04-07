@@ -1,0 +1,11 @@
+﻿INFO:     127.0.0.1:57326 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:57326 - "GET /style.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:57326 - "GET /app.js HTTP/1.1" 304 Not Modified
+[DEBUG] Tool: get_tent_stats()
+INFO:     127.0.0.1:50972 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49259 - "GET /tents/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57326 - "GET /tents HTTP/1.1" 200 OK
+[DEBUG] Chat request from session 8pkx8db: Create a histogram of prices.
+[DEBUG] Creating new session: 8pkx8db
+[ERROR] Chat error: 404 models/gemini-1.5-flash-latest is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:60984 - "POST /api/chat HTTP/1.1" 500 Internal Server Error
