@@ -57,6 +57,14 @@
       </div>
     </section>
     <section id="chat-container">
+      <div class="mode-switcher">
+        <button id="mode-management" class="mode-btn active" onclick="switchMode('management')">
+          <span>🛠️ 管理</span>
+        </button>
+        <button id="mode-assistant" class="mode-btn" onclick="switchMode('assistant')">
+          <span>💡 相談</span>
+        </button>
+      </div>
       <div class="chat-messages" id="chat-messages">
         <div class="message ai-message">
           こんにちは！Tents データベースのAIエージェントです。データの質問や編集、削除の指示があればチャットでお申し付けください。

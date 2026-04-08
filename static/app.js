@@ -18,6 +18,7 @@ marked.setOptions({
 let currentTents = [];
 let pendingEdits = {}; // { id: { field: newValue } }
 let sortConfig = { key: 'id', direction: 'asc' }; // default sort
+let currentMode = 'management'; // AI mode: 'management' or 'assistant'
 
 // Configuration for numeric fields
 const numericFields = ['id', 'price', 'capacity', 'weight_kg', 'size_w', 'size_d', 'size_h', 'pack_w', 'pack_d', 'pack_h'];
@@ -435,18 +436,29 @@ async function sendMessage() {
         const res = await fetch(`${API_BASE}/api/chat`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ message: msg, session_id: sessionId })
+            body: JSON.stringify({ 
+                message: msg, 
+                session_id: sessionId, 
+                history: messageHistory,
+                mode: currentMode 
+            })
         });
         if (!res.ok) {
             const errData = await res.json();
             appendMessage('ai', `サーバーエラーが発生しました: ${errData.detail || '不明なエラー'}`);
         } else {
             const data = await res.json();
+            
+            // 重要: AIの内部状態を含む完全な履歴を更新
+            if (data.history) {
+                messageHistory = data.history;
+            }
+
             // Process UI proposals from AI response
             parseUIProposals(data.response);
 
             // Clean up response text (remove tags from display)
-            const cleanResponse = data.response.replace(/\[UI_PROPOSAL:[\s\S]*?\]/g, '').replace(/\[UI_BULK_PROPOSAL:[\s\S]*?\]/g, '').trim();
+            const cleanResponse = data.response.replace(/\[UI_PROPOSAL:[\s\S]*?\]/g, '').replace(/\[UI_BULK_PROPOSAL:[\s\S]*?\]/g, '').replace(/\[UI_ADD_PROPOSAL:[\s\S]*?\]/g, '').replace(/\[UI_DELETE_PROPOSAL:[\s\S]*?\]/g, '').trim();
             appendMessage('ai', cleanResponse || 'ご提案を反映しました。');
         }
     } catch (e) {
@@ -493,7 +505,7 @@ function appendMessage(sender, text) {
         container.appendChild(msgDiv);
     }
     container.scrollTop = container.scrollHeight;
-    messageHistory.push({ sender, text });
+    // 注: messageHistoryの更新はsendMessage内で行われるため、ここでは行わない
 }
 
 function loadHistory() {
@@ -516,6 +528,21 @@ document.getElementById('send-btn').addEventListener('click', sendMessage);
 document.getElementById('chat-input').addEventListener('keypress', (e) => {
     if (e.key === 'Enter') sendMessage();
 });
+
+function switchMode(mode) {
+    currentMode = mode;
+    document.getElementById('mode-management').classList.toggle('active', mode === 'management');
+    document.getElementById('mode-assistant').classList.toggle('active', mode === 'assistant');
+    
+    // Assistant mode uses a different color
+    document.getElementById('mode-assistant').classList.toggle('assistant-mode', mode === 'assistant');
+
+    const msg = mode === 'assistant' 
+        ? '💡 相談モードに切り替えました。キャンプの知識やWEB検索、おすすめの相談などが可能です。' 
+        : '🛠️ 管理モードに切り替えました。Notionからのデータ抽出やDB更新に特化します。';
+    appendMessage('ai', msg);
+}
+window.switchMode = switchMode;
 
 fetchTents();
 fetchStats();

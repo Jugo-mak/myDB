@@ -459,33 +459,83 @@ model = genai.GenerativeModel(
 async def chat_with_agent(
     message: str = Body(..., embed=True),
     session_id: str = Body("default", embed=True),
-    history: List[Dict[str, Any]] = Body([], embed=True)
+    history: List[Dict[str, Any]] = Body([], embed=True),
+    mode: str = Body("management", embed=True)
 ):
-    system_message = (
-        "あなたは優秀なテントDB管理エージェントです。\n"
-        "Notion上の非構造化データ（平文）から情報を読み取り、SupabaseのDBを補完する役割を担います。\n"
-        "\n"
-        "【基本動作ルール】\n"
-        "1. **個別指示の尊重**: ユーザーから「〇〇の項目だけ入力して」と指示された場合、Notionのテキストに他の情報があっても、無視して指定された項目のみを提案してください。\n"
-        "2. **Notionの読み解き**: Notionには「購入日 2024/01/01」のような直接的な記述のほか、「去年の夏に買った」などの曖昧な記述もあります。これらを文脈から判断し、可能な限り正確な値を導き出してください。\n"
-        "3. **UI提案（ドラフト形式）**: 変更は必ず `update_tent_fields` などのツールを使い、画面上への反映（赤字表示）として提案してください。直接DBを書き換えることはしません。\n"
-        "4. **根拠の提示**: データを抽出した際は「Notionの本文に〇〇という記述があったため、購入日を××と判断しました」と根拠を添えてください。\n"
-        "5. **勝手な一括同期の禁止**: ユーザーが明示的に求めていない限り、全件の自動同期は行わないでください。"
-    )
+    # モードに応じたシステムプロンプトとモデル（ツールセット）の設定
+    if mode == "assistant":
+        system_message = (
+            "あなたは親切で博識なキャンプ用品コンシェルジュです。\n"
+            "テントデータベースの管理だけでなく、キャンプ全般の知識やWEB上の最新情報（価格、レビュー、トレンド）を提供します。\n"
+            "\n"
+            "【相談モードのルール】\n"
+            "1. **丁寧な対話**: ユーザーの質問に対して、専門的かつ親しみやすい口調で回答してください。\n"
+            "2. **WEB検索の活用**: 最新の価格情報や、DBにないテントの詳細については積極的にGoogle検索（ツール）を使用してください。\n"
+            "3. **DB操作も可能**: 引き続き、DB内のテント情報を調べたり、修正を提案したりすることも可能です。\n"
+            "4. **至れり尽くせりな提案**: 「このテントを買うなら、こちらのタープもおすすめですよ」といった先回りした提案を歓迎します。"
+        )
+        # 相談モード時はGoogle検索ツールを追加
+        current_tools = [
+            list_tents, search_tents, get_tent_by_id, get_tent_stats, 
+            update_tent_fields, bulk_update_tents, delete_tent_by_id, add_tent,
+            list_notion_tents, get_notion_tent_detail, add_notion_tent_to_db,
+            sync_all_from_notion, validate_ui_proposals,
+            {"google_search_retrieval": {}} # WEB検索機能を有効化
+        ]
+        active_model = genai.GenerativeModel(
+            model_name='models/gemini-3.1-flash-lite-preview',
+            tools=current_tools
+        )
+    else:
+        system_message = (
+            "あなたは優秀なテントDB管理エージェントです。\n"
+            "Notion上の非構造化データ（平文）から情報を読み取り、SupabaseのDBを補完する役割を担います。\n"
+            "\n"
+            "【基本動作ルール】\n"
+            "1. **個別指示の尊重**: ユーザーから「〇〇の項目だけ入力して」と指示された場合、Notionのテキストに他の情報があっても、無視して指定された項目のみを提案してください。\n"
+            "2. **Notionの読み解き**: Notionには「購入日 2024/01/01」のような直接的な記述のほか、「去年の夏に買った」などの曖昧な記述もあります。これらを文脈から判断し、可能な限り正確な値を導き出してください。\n"
+            "3. **UI提案（ドラフト形式）**: 変更は必ず `update_tent_fields` などのツールを使い、画面上への反映（赤字表示）として提案してください。直接DBを書き換えることはしません。\n"
+            "4. **根拠の提示**: データを抽出した際は「Notionの本文に〇〇という記述があったため、購入日を××と判断しました」と根拠を添えてください。\n"
+            "5. **勝手な一括同期の禁止**: ユーザーが明示的に求めていない限り、全件の自動同期は行わないでください。"
+        )
+        # 管理モード用モデルを定義
+        active_model = genai.GenerativeModel(
+            model_name='models/gemini-3.1-flash-lite-preview',
+            tools=[
+                list_tents, search_tents, get_tent_by_id, get_tent_stats, 
+                update_tent_fields, bulk_update_tents, delete_tent_by_id, add_tent,
+                list_notion_tents, get_notion_tent_detail, add_notion_tent_to_db,
+                sync_all_from_notion, validate_ui_proposals
+            ]
+        )
 
     print(f"[DEBUG] Chat request from session {session_id}, history length: {len(history)}")
     try:
-        # 履歴を構築
+        # 履歴を構築 (構造化された履歴を復元)
         formatted_history = []
         if not history:
             formatted_history.append({"role": "user", "parts": [system_message]})
             formatted_history.append({"role": "model", "parts": ["了解しました。DBの整理と最適な提案を自由に行います。"]})
         else:
-            # フロントエンドから送られてきた履歴を使用
+            # フロントエンドから送られてきた詳細な履歴（text, function_call, function_responseを含む）を復元
             for h in history:
-                formatted_history.append({"role": h["role"], "parts": [h["content"]]})
+                parts = []
+                for p in h.get("parts", []):
+                    if "text" in p:
+                        parts.append(p["text"])
+                    elif "function_call" in p:
+                        # Convert dict to FunctionCallPart
+                        fc = p["function_call"]
+                        parts.append(genai.types.FunctionCallPart(name=fc["name"], args=fc["args"]))
+                    elif "function_response" in p:
+                        # Convert dict to FunctionResponsePart
+                        fr = p["function_response"]
+                        parts.append(genai.types.FunctionResponsePart(name=fr["name"], response=fr["response"]))
+                
+                if parts:
+                    formatted_history.append({"role": h["role"], "parts": parts})
 
-        chat = model.start_chat(
+        chat = active_model.start_chat(
             history=formatted_history,
             enable_automatic_function_calling=True
         )
@@ -517,27 +567,45 @@ async def chat_with_agent(
         # Collect response text
         full_response_text = response.text
         
-        # CRITICAL: Also collect tool execution results (the [UI_PROPOSAL] tags) 
-        # from the model's candidates to ensure they reach the frontend.
-        for part in response.candidates[0].content.parts:
-            if part.function_call:
-                # If there's a function call, the result will be in the next turn of history
-                pass
-        
-        # Instead of just response.text, we need to find the [UI_PROPOSAL] tag in the chat history
-        # which was generated by our tools.
+        # Collect ALL tool execution results (the [UI_PROPOSAL] tags) from history
         history = chat.history
-        # Look ONLY at the very last function_response entry to avoid history bloat
-        if len(history) >= 2:
-            last_func_entry = history[-2]
-            if getattr(last_func_entry, 'role', '') != 'model':
-                for part in getattr(last_func_entry, 'parts', []):
+        found_tags = []
+        for entry in history:
+            if hasattr(entry, 'parts'):
+                for part in entry.parts:
                     if hasattr(part, 'function_response') and part.function_response:
                         val = part.function_response.response.get('result')
                         if val and isinstance(val, str) and ('[UI_' in val):
-                            full_response_text += "\n" + val
+                            # Extract tags (one or many) from the tool result
+                            for line in val.splitlines():
+                                if '[UI_' in line:
+                                    tag = line.strip()
+                                    if tag not in found_tags:
+                                        found_tags.append(tag)
+        
+        # Append found tags to response text if not already present
+        for tag in found_tags:
+            if tag not in full_response_text:
+                full_response_text += "\n" + tag
 
-        return {"response": full_response_text}
+        # Get the UPDATED history to send back to frontend
+        # Serialize to JSON-friendly format
+        updated_history = []
+        for c in chat.history:
+            parts = []
+            for p in c.parts:
+                if p.text:
+                    parts.append({"text": p.text})
+                elif p.function_call:
+                    parts.append({"function_call": {"name": p.function_call.name, "args": dict(p.function_call.args)}})
+                elif p.function_response:
+                    parts.append({"function_response": {"name": p.function_response.name, "response": p.function_response.response}})
+            updated_history.append({"role": c.role, "parts": parts})
+
+        return {
+            "response": full_response_text,
+            "history": updated_history
+        }
 
     except Exception as e:
         err_msg = f"Chat interaction failed: {str(e)}"
